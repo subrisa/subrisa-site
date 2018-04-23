@@ -3,11 +3,6 @@
   "version": "1.0.0",
   "description": "Subrisa.com website made with react and prismic.io",
   "main": "index.js",
-  "scripts": {
-    "dev": "next",
-    "deploy": "now -e NODE_ENV=production --token $NOW_TOKEN --npm",
-    "alias": "now alias --token=$NOW_TOKEN"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/subrisa/subrisa-site.git"
@@ -29,6 +24,17 @@
     "babel-plugin-module-resolver": "^3.1.1",
     "now": "^11.1.7"
   },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "deploy": "now -e NODE_ENV=production --token $NOW_TOKEN --npm",
+    "alias": "now alias --token=$NOW_TOKEN"
+  },
+  "now": {
+    "name": "subrisa-com",
+    "alias": "subrisa-com"
+  },
   "babel": {
     "presets": [
       "next/babel"
@@ -43,9 +49,5 @@
         }
       ]
     ]
-  },
-  "now": {
-    "name": "subrisa",
-    "alias": "subrisa-com"
   }
 }
