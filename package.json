@@ -26,7 +26,8 @@
     "recompose": "^0.26.0"
   },
   "devDependencies": {
-    "babel-plugin-module-resolver": "^3.1.1"
+    "babel-plugin-module-resolver": "^3.1.1",
+    "now": "^11.1.7"
   },
   "babel": {
     "presets": [
