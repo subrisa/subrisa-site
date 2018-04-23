@@ -4,7 +4,9 @@
   "description": "Subrisa.com website made with react and prismic.io",
   "main": "index.js",
   "scripts": {
-    "dev": "next"
+    "dev": "next",
+    "deploy": "now -e NODE_ENV=production --token $NOW_TOKEN --npm",
+    "alias": "now alias --token=$NOW_TOKEN"
   },
   "repository": {
     "type": "git",
@@ -40,5 +42,9 @@
         }
       ]
     ]
+  },
+  "now": {
+    "name": "subrisa",
+    "alias": "subrisa-com"
   }
 }
