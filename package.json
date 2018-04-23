@@ -28,7 +28,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "deploy": "now -e NODE_ENV=production --token $NOW_TOKEN --npm -T brisa",
+    "deploy": "now -e NODE_ENV=production --token $NOW_TOKEN --npm --public -T brisa",
     "alias": "now alias --token=$NOW_TOKEN -T brisa"
   },
   "now": {
