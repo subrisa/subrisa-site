@@ -1,0 +1,44 @@
+{
+  "name": "subrisa-site",
+  "version": "1.0.0",
+  "description": "Subrisa.com website made with react and prismic.io",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/subrisa/subrisa-site.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/subrisa/subrisa-site/issues"
+  },
+  "homepage": "https://github.com/subrisa/subrisa-site#readme",
+  "dependencies": {
+    "next": "^5.1.0",
+    "nprogress": "^0.2.0",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "recompose": "^0.26.0"
+  },
+  "devDependencies": {
+    "babel-plugin-module-resolver": "^3.1.1"
+  },
+  "babel": {
+    "presets": [
+      "next/babel"
+    ],
+    "plugins": [
+      [
+        "module-resolver",
+        {
+          "root": [
+            "./"
+          ]
+        }
+      ]
+    ]
+  }
+}
