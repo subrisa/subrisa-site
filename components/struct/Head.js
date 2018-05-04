@@ -6,8 +6,12 @@ import NProgress from 'nprogress'
 const CustomHead = () =>
   <div>
     <Head>
+      <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
     </Head>
-    <style jsx global>{`body { margin: 0 }`}</style>
+    <style jsx global>{`
+      body { margin: 0; font-family: 'Lato', sans-serif; }
+      img { max-width: 100% }
+    `}</style>
   </div>
 
 Router.onRouteChangeStart = () => NProgress.start()

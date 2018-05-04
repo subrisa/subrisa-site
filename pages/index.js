@@ -4,13 +4,20 @@ import Head from 'components/struct/Head'
 import Masthead from 'components/struct/Masthead'
 import Main from 'components/struct/Main'
 import Footer from 'components/struct/Footer'
+import About from 'components/home/About'
+import Products from 'components/home/Products'
+import News from 'components/home/News'
+import Contact from 'components/home/Contact'
 
 const IndexPage = () =>
   <Body>
     <Head />
     <Masthead />
     <Main>
-      Main
+      <About />
+      <Products />
+      <News />
+      <Contact />
     </Main>
     <Footer />
   </Body>
