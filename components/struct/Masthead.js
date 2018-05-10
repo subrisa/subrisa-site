@@ -16,6 +16,7 @@ const Header = () =>
         padding: 20px;
         background: rgba(0, 0, 0, 0.1);
         color: white;
+        fill: white;
         position: fixed;
         left: 0; right: 0; top: 0;
       }

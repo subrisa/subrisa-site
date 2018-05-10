@@ -1,9 +1,10 @@
 import React from 'react'
+import { Facebook, Instagram } from '../base/Icons'
 
 const SocialMenu = () =>
   <nav>
-    <a>Facebook</a>
-    <a>Instragram</a>
+    <a><Facebook /></a>
+    <a><Instagram /></a>
     <style jsx>{`
       nav {
         display: flex;
