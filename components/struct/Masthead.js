@@ -41,8 +41,8 @@ const Header = ({ scrollTop }) =>
         z-index: 5000;
       }
       .logoWrapper {
-        width: 102px;
-        transition: .9s all;
+        width: 117px;
+        transition: .5s all .3s;
         backface-visibility: hidden;
       }
       header .logoWrapper.icon {
@@ -58,7 +58,7 @@ const Header = ({ scrollTop }) =>
         transition: .9s all .2s;
       }
       header.small .logoWrapper {
-        width: 34px;
+        width: 39px;
         transition: .3s all;
       }
       header.small .logoWrapper.icon {
@@ -69,7 +69,6 @@ const Header = ({ scrollTop }) =>
       }
       header.small .menuWrapper {
         transition: .3s all;
-        transform: scale(0.8);
       }
     `}</style>
   </header>

@@ -7,17 +7,34 @@ const About = () =>
     <div>
       <li>
         <span>Mini Classic</span>
-        <div>imagen</div>
+        <div><img src='http://via.placeholder.com/480x360' /></div>
         <span>No tamanho ideal para bla ...</span>
       </li>
       <li>
         <span>Mini Slim</span>
-        <div>imagen</div>
+        <div><img src='http://via.placeholder.com/480x360' /></div>
         <span>Perfeita para o sabor do bla ...</span>
       </li>
       <li>
         <span>Mini Brown</span>
-        <div>imagen</div>
+        <div><img src='http://via.placeholder.com/480x360' /></div>
+        <span>Sem alvejante e bla puro ...</span>
+      </li>
+    </div>
+    <div>
+      <li>
+        <span>Classic</span>
+        <div><img src='http://via.placeholder.com/480x360' /></div>
+        <span>No tamanho ideal para bla ...</span>
+      </li>
+      <li>
+        <span>Slim</span>
+        <div><img src='http://via.placeholder.com/480x360' /></div>
+        <span>Perfeita para o sabor do bla ...</span>
+      </li>
+      <li>
+        <span>Brown</span>
+        <div><img src='http://via.placeholder.com/480x360' /></div>
         <span>Sem alvejante e bla puro ...</span>
       </li>
     </div>

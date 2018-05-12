@@ -12,7 +12,6 @@ const CustomHead = () =>
       body {
         margin: 0;
         font-family: 'Lato', sans-serif;
-        font-size: 14px;
       }
       img { max-width: 100%; }
       h1, h2, h3, h4, h5 { font-weight: inherit; }

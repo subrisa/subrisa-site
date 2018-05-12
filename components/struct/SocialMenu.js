@@ -10,7 +10,7 @@ const SocialMenu = () =>
         display: flex;
         justify-content: space-between;
       }
-      nav a { margin: 0 10px; }
+      nav a { margin: 0 5px; }
       nav a:first-child { margin-left: 0 }
       nav a:last-child { margin-right: 0 }
     `}</style>
