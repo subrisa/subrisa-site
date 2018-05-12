@@ -43,12 +43,15 @@ const About = () =>
         display: flex;
         justify-content: space-between;
         max-width: 700px;
-        margin: 50px auto;
+        margin: 40px auto;
       }
       .root > div > li {
         list-style: none;
         text-align: center;
         width: 30%;
+      }
+      .root > div > li img {
+        margin: 10px 0
       }
     `}</style>
   </div>

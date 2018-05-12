@@ -8,6 +8,7 @@ import About from 'components/home/About'
 import Products from 'components/home/Products'
 import News from 'components/home/News'
 import Contact from 'components/home/Contact'
+import MessengerChat from 'components/home/MessengerChat'
 
 const IndexPage = () =>
   <Body>
@@ -19,6 +20,7 @@ const IndexPage = () =>
       <Contact />
     </Main>
     <Footer />
+    <MessengerChat />
   </Body>
 
 export default IndexPage
