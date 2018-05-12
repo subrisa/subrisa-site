@@ -9,10 +9,13 @@ const MainMenu = () =>
     <style jsx>{`
       nav {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         text-transform: uppercase;
-        width: 100%;
+        font-size: 1em;
       }
+      nav a { margin: 0 20px; }
+      nav a:first-child: { margin-left: 0 }
+      nav a:last-child: { margin-right: 0 }
     `}</style>
   </nav>
 

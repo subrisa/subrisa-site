@@ -5,8 +5,8 @@ const About = () =>
   <div>
     <img src='https://subrisa.com/static/bg.jpg' />
     <div className='wrapper'>
-      <h2><Title text='Nosotros' color='white'/></h2>
-      <p>Somos Brisa, un nuevo rolling paper 420% chileno, que nace para ofrecer un producto de la más alta calidad, al mejor precio.</p>
+      <h2><Title text='Nuestra Brisa' color='white'/></h2>
+      <p>Brisa es un nuevo rolling paper 420% chileno, que nace para ofrecer un producto de la más alta calidad, al mejor precio.</p>
     </div>
     <style jsx>{`
       img {
@@ -23,7 +23,6 @@ const About = () =>
       }
       p {
         max-width: 600px;
-        font-size: 19px;
         text-align: center;
         margin-left: auto; margin-right: auto;
       }

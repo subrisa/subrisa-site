@@ -11,6 +11,8 @@ const Title = ({ text, color }) =>
         font-size: 28px;
         position: relative;
         display: block;
+        padding-bottom: 5px;
+        font-weight: 300;
       }
       .underline {
         position: absolute;
