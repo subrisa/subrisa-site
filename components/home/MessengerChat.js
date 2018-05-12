@@ -22,6 +22,7 @@ const MessengerChat = ({ scrollTop }) =>
       className="fb-customerchat"
       attribution="setup_tool"
       page_id="202983340452697"
+      theme_color="#847894"
       logged_in_greeting="Hola!"
       logged_out_greeting="Hola!"
     />
