@@ -4,7 +4,7 @@ import Title from '../base/Title'
 const About = () =>
   <div>
     <img src='https://subrisa.com/static/bg.jpg' />
-    <div className='wrapper'>
+    <div className='wrapper' id='about'>
       <h2><Title text='Nuestra Brisa' color='white'/></h2>
       <p>Brisa es un nuevo rolling paper 420% chileno, que nace para ofrecer un producto de la más alta calidad, al mejor precio.</p>
     </div>

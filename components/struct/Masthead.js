@@ -2,6 +2,7 @@ import React from 'react'
 import { Logo, LogoIcon } from '../base/Icons'
 import MainMenu from './MainMenu'
 import SocialMenu from './SocialMenu'
+import { handleAnchorClick } from '../../lib/animatedScroll'
 import { withState, withHandlers, lifecycle, compose } from 'recompose'
 
 const enhance = compose(
@@ -22,8 +23,10 @@ const enhance = compose(
 const Header = ({ scrollTop }) =>
   <header className={scrollTop > 60 && 'small'}>
     <div style={{position: 'relative'}}>
-      <div className='logoWrapper full'><Logo /></div>
-      <div className='logoWrapper icon'><LogoIcon /></div>
+      <a href='/#' onClick={handleAnchorClick}>
+        <div className='logoWrapper full'><Logo /></div>
+        <div className='logoWrapper icon'><LogoIcon /></div>
+      </a>
     </div>
     <div className='menuWrapper'><MainMenu /></div>
     <div className='menuWrapper'><SocialMenu /></div>
@@ -55,7 +58,7 @@ const Header = ({ scrollTop }) =>
         transition: 1s all;
       }
       header.small {
-        background: rgba(0, 0, 0, 0.6);
+        background: rgba(0, 0, 0, 0.7);
         transition: .9s all .2s;
       }
       header.small .logoWrapper {

@@ -7,7 +7,7 @@ const About = () =>
     <div>
       <div>
         <p>Quer receber novidades, lançamentos bla bla. Deixe seu email bla bla.</p>
-        <input type='text' />
+        <input type='text' placeholder='exemplo@dominio.com' />
       </div>
       <div>
         <p>Você tambem pode falar com a gente direto no Facebook, é so clicar ali -></p>
@@ -31,6 +31,7 @@ const About = () =>
         width: 100%;
         font-size: 22px;
         box-sizing: border-box;
+        text-align: center;
       }
     `}</style>
   </div>

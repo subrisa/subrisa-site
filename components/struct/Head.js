@@ -16,7 +16,12 @@ const CustomHead = ({ title }) =>
       }
       img { max-width: 100%; }
       h1, h2, h3, h4, h5 { font-weight: inherit; }
-      a { text-decoration: none; color: inherit; }
+      a {
+        text-decoration: none;
+        color: inherit;
+        fill: inherit;
+        cursor: pointer;
+      }
       a:visited { color: inherit; }
     `}</style>
   </div>

@@ -1,9 +1,10 @@
 import React from 'react'
+import { handleAnchorClick } from '../../lib/animatedScroll'
 
 const MainMenu = () =>
   <nav>
-    <a>Nosotros</a>
-    <a href='#products'>Productos</a>
+    <a href='/#about' onClick={ handleAnchorClick }>Nosotros</a>
+    <a href='/#products' onClick={ handleAnchorClick }>Productos</a>
     <a>Noticias</a>
     <a>Contacto</a>
     <style jsx>{`
@@ -18,6 +19,5 @@ const MainMenu = () =>
       nav a:last-child: { margin-right: 0 }
     `}</style>
   </nav>
-
 
 export default MainMenu
