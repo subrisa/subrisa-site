@@ -1,59 +1,64 @@
 import React from 'react'
 import Title from '../base/Title'
+import WidthLimiter from '../struct/WidthLimiter'
 
 const About = () =>
-  <div className='root'>
-    <h2><Title text='Productos'  color='rgb(132, 120, 148)' /></h2>
-    <div>
-      <li>
-        <span>Mini Classic</span>
-        <div><img src='http://via.placeholder.com/480x360' /></div>
-        <span>No tamanho ideal para bla ...</span>
-      </li>
-      <li>
-        <span>Mini Slim</span>
-        <div><img src='http://via.placeholder.com/480x360' /></div>
-        <span>Perfeita para o sabor do bla ...</span>
-      </li>
-      <li>
-        <span>Mini Brown</span>
-        <div><img src='http://via.placeholder.com/480x360' /></div>
-        <span>Sem alvejante e bla puro ...</span>
-      </li>
-    </div>
-    <div>
-      <li>
-        <span>Classic</span>
-        <div><img src='http://via.placeholder.com/480x360' /></div>
-        <span>No tamanho ideal para bla ...</span>
-      </li>
-      <li>
-        <span>Slim</span>
-        <div><img src='http://via.placeholder.com/480x360' /></div>
-        <span>Perfeita para o sabor do bla ...</span>
-      </li>
-      <li>
-        <span>Brown</span>
-        <div><img src='http://via.placeholder.com/480x360' /></div>
-        <span>Sem alvejante e bla puro ...</span>
-      </li>
+  <WidthLimiter>
+    <div className='root' id='products'>
+      <h2><Title text='Productos'  color='rgb(132, 120, 148)' /></h2>
+      <div>
+        <li>
+          <h3>Mini Classic</h3>
+          <div><img src='http://via.placeholder.com/480x360' /></div>
+          <p>No tamanho ideal para bla ...</p>
+        </li>
+        <li>
+          <h3>Mini Slim</h3>
+          <div><img src='http://via.placeholder.com/480x360' /></div>
+          <p>Perfeita para o sabor do bla ...</p>
+        </li>
+        <li>
+          <h3>Mini Brown</h3>
+          <div><img src='http://via.placeholder.com/480x360' /></div>
+          <p>Sem alvejante e bla puro ...</p>
+        </li>
+      </div>
+      <div>
+        <li>
+          <h3>Classic</h3>
+          <div><img src='http://via.placeholder.com/480x360' /></div>
+          <p>No tamanho ideal para bla ...</p>
+        </li>
+        <li>
+          <h3>Slim</h3>
+          <div><img src='http://via.placeholder.com/480x360' /></div>
+          <p>Perfeita para o sabor do bla ...</p>
+        </li>
+        <li>
+          <h3>Brown</h3>
+          <div><img src='http://via.placeholder.com/480x360' /></div>
+          <p>Sem alvejante e bla puro ...</p>
+        </li>
+      </div>
     </div>
     <style jsx>{`
+      .root {
+        margin-bottom: 4rem;
+      }
       .root > div {
         display: flex;
         justify-content: space-between;
-        max-width: 700px;
-        margin: 40px auto;
       }
       .root > div > li {
         list-style: none;
-        text-align: center;
         width: 30%;
       }
-      .root > div > li img {
-        margin: 10px 0
+      .root > div > li h3 {
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 300;
       }
     `}</style>
-  </div>
+  </WidthLimiter>
 
 export default About

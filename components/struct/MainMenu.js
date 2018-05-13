@@ -3,7 +3,7 @@ import React from 'react'
 const MainMenu = () =>
   <nav>
     <a>Nosotros</a>
-    <a>Productos</a>
+    <a href='#products'>Productos</a>
     <a>Noticias</a>
     <a>Contacto</a>
     <style jsx>{`

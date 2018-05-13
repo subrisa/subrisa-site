@@ -11,15 +11,15 @@ const Title = ({ text, color }) =>
         font-size: 28px;
         position: relative;
         display: block;
-        padding-bottom: 5px;
         font-weight: 300;
+        padding-bottom: 1em;
       }
       .underline {
         position: absolute;
         width: 60px;
         height: 6px;
         border-radius: 3px;
-        bottom: -10px;
+        top: 1.6em;
         left: calc(50% - 30px);
         background: ${color};
       }

@@ -16,7 +16,7 @@ const About = () =>
       }
       .wrapper {
         position: absolute;
-        bottom: 20px;
+        bottom: 1rem;
         left: 20px;
         right: 20px;
         color: white;

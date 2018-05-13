@@ -3,16 +3,24 @@ import { Facebook, Instagram } from '../base/Icons'
 
 const SocialMenu = () =>
   <nav>
-    <a href='http://facebook.com/brisachile' target='_blank'><Facebook /></a>
-    <a href='http://facebook.com/brisachile' target='_blank'><Instagram /></a>
+    <div>
+      <a href='http://facebook.com/brisachile' target='_blank'><Facebook /></a>
+    </div>
+    <div>
+      <a href='http://facebook.com/brisachile' target='_blank'><Instagram /></a>
+    </div>
     <style jsx>{`
       nav {
         display: flex;
         justify-content: space-between;
       }
-      nav a { margin: 0 5px; }
-      nav a:first-child { margin-left: 0 }
-      nav a:last-child { margin-right: 0 }
+      nav > div {
+        width: 18px;
+        height: 18px;
+        margin: 0 5px;
+      }
+      nav > div:first-child { margin-left: 0 }
+      nav > div:last-child { margin-right: 0 }
     `}</style>
   </nav>
 

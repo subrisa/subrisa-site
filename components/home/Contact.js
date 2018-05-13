@@ -4,11 +4,33 @@ import Title from '../base/Title'
 const About = () =>
   <div className='root'>
     <h2><Title text='Contacto' color='red' /></h2>
-    <p>Deixe seu email </p>
-    <input type='text' />
+    <div>
+      <div>
+        <p>Quer receber novidades, lançamentos bla bla. Deixe seu email bla bla.</p>
+        <input type='text' />
+      </div>
+      <div>
+        <p>Você tambem pode falar com a gente direto no Facebook, é so clicar ali -></p>
+      </div>
+    </div>
     <style jsx>{`
       .root {
-        margin: 20px 0
+        margin-bottom: 4rem;
+      }
+      .root > div {
+        max-width: 720px;
+        padding: 0 20px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+      }
+      .root > div > div {
+        width: 45%;
+      }
+      input {
+        width: 100%;
+        font-size: 22px;
+        box-sizing: border-box;
       }
     `}</style>
   </div>

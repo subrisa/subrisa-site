@@ -44,6 +44,7 @@ const Header = ({ scrollTop }) =>
         width: 117px;
         transition: .5s all .3s;
         backface-visibility: hidden;
+        font-size: 0;
       }
       header .logoWrapper.icon {
         transform: rotateY(180deg);

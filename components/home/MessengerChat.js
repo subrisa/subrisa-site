@@ -25,6 +25,7 @@ const MessengerChat = ({ scrollTop }) =>
       theme_color="#847894"
       logged_in_greeting="Hola!"
       logged_out_greeting="Hola!"
+      greeting_dialog_delay="4"
     />
   </div>
 
