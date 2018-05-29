@@ -3,7 +3,7 @@ import Title from '../base/Title'
 
 const About = () =>
   <div className='root'>
-    <h2><Title text='Contacto' color='red' /></h2>
+    <h2><Title text='Contacto' color='#85ABA9' /></h2>
     <div>
       <div>
         <p>Quer receber novidades, lançamentos bla bla. Deixe seu email bla bla.</p>
@@ -32,6 +32,10 @@ const About = () =>
         font-size: 22px;
         box-sizing: border-box;
         text-align: center;
+        border: 3px solid #85ABA9;
+        border-radius: 50px;
+        padding: 5px;
+        font-weight: 300;
       }
     `}</style>
   </div>

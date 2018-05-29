@@ -16,6 +16,8 @@
   "dependencies": {
     "next": "^5.1.0",
     "nprogress": "^0.2.0",
+    "prismic-javascript": "^1.5.0-beta.3",
+    "prismic-reactjs": "^0.3.1",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "recompose": "^0.26.0"

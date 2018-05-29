@@ -14,8 +14,13 @@ const CustomHead = ({ title }) =>
         margin: 0;
         font-family: 'Lato', sans-serif;
       }
-      img { max-width: 100%; }
-      h1, h2, h3, h4, h5 { font-weight: inherit; }
+      img {
+        max-width: 100%;
+      }
+      h1, h2, h3, h4, h5 {
+        font-weight: inherit;
+        font-size: inherit;
+      }
       a {
         text-decoration: none;
         color: inherit;
@@ -23,6 +28,7 @@ const CustomHead = ({ title }) =>
         cursor: pointer;
       }
       a:visited { color: inherit; }
+      a:focus, input:focus { outline: none; }
     `}</style>
   </div>
 

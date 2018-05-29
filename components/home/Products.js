@@ -1,64 +1,56 @@
 import React from 'react'
 import Title from '../base/Title'
 import WidthLimiter from '../struct/WidthLimiter'
+import { RichText } from 'prismic-reactjs'
 
-const About = () =>
+const Products = ({ products }) =>
   <WidthLimiter>
     <div className='root' id='products'>
       <h2><Title text='Productos'  color='rgb(132, 120, 148)' /></h2>
-      <div>
-        <li>
-          <h3>Mini Classic</h3>
-          <div><img src='http://via.placeholder.com/480x360' /></div>
-          <p>No tamanho ideal para bla ...</p>
-        </li>
-        <li>
-          <h3>Mini Slim</h3>
-          <div><img src='http://via.placeholder.com/480x360' /></div>
-          <p>Perfeita para o sabor do bla ...</p>
-        </li>
-        <li>
-          <h3>Mini Brown</h3>
-          <div><img src='http://via.placeholder.com/480x360' /></div>
-          <p>Sem alvejante e bla puro ...</p>
-        </li>
-      </div>
-      <div>
-        <li>
-          <h3>Classic</h3>
-          <div><img src='http://via.placeholder.com/480x360' /></div>
-          <p>No tamanho ideal para bla ...</p>
-        </li>
-        <li>
-          <h3>Slim</h3>
-          <div><img src='http://via.placeholder.com/480x360' /></div>
-          <p>Perfeita para o sabor do bla ...</p>
-        </li>
-        <li>
-          <h3>Brown</h3>
-          <div><img src='http://via.placeholder.com/480x360' /></div>
-          <p>Sem alvejante e bla puro ...</p>
-        </li>
-      </div>
+      <ul>
+        {products.length > 0 ?
+          products.map(({ data: { name, image, description } }) =>
+            <li>
+              <ProductItem
+                name={name}
+                image={image}
+                description={description}
+              />
+            </li>
+          ):
+          <div><p>No products to show</p></div>
+        }
+      </ul>
     </div>
     <style jsx>{`
       .root {
         margin-bottom: 4rem;
       }
-      .root > div {
+      .root > ul {
         display: flex;
         justify-content: space-between;
-      }
-      .root > div > li {
         list-style: none;
-        width: 30%;
+        padding: 0;
       }
-      .root > div > li h3 {
-        text-transform: uppercase;
+      .root > ul > li {
+        width: 30%;
         text-align: center;
-        font-weight: 300;
       }
     `}</style>
   </WidthLimiter>
 
-export default About
+const ProductItem = ({ name, image, description }) =>
+  <div>
+    <h3>{RichText.render(name)}</h3>
+    <div><img src={image.thumb.url} /></div>
+    <p>{RichText.render(description)}</p>
+    <style jsx>{`
+      h3 {
+        text-transform: uppercase;
+        font-weight: 300;
+        font-size: 22px;
+      }
+    `}</style>
+  </div>
+
+export default Products
