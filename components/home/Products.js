@@ -6,7 +6,7 @@ import { RichText } from 'prismic-reactjs'
 const Products = ({ products }) =>
   <WidthLimiter>
     <div className='root' id='products'>
-      <h2><Title text='Productos'  color='rgb(132, 120, 148)' /></h2>
+      <h2><Title text='Nostros Productos'  color='rgb(132, 120, 148)' /></h2>
       <ul>
         {products.length > 0 ?
           products.map(({ product: { data: { name, image, description } } }) =>
