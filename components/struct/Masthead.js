@@ -58,8 +58,8 @@ const Header = ({ scrollTop }) =>
         transition: 1s all;
       }
       header.small {
-        background: rgba(0, 0, 0, 0.85);
-        transition: .9s all .2s;
+        background: rgba(0, 0, 0, 0.8);
+        transition: .9s background-color .2s;
       }
       header.small .logoWrapper {
         width: 39px;

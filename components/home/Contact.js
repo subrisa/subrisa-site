@@ -2,7 +2,7 @@ import React from 'react'
 import Title from '../base/Title'
 
 const About = () =>
-  <div className='root'>
+  <div className='root' id='contact'>
     <h2><Title text='Contacto' color='#85ABA9' /></h2>
     <div>
       <div>
@@ -16,7 +16,12 @@ const About = () =>
     </div>
     <style jsx>{`
       .root {
-        margin-bottom: 4rem;
+        padding-bottom: 6rem;
+        //padding-bottom: 20vw;
+        //background-image: url('/static/bg.png');
+        background-size: 100%;
+        background-position: center bottom;
+        background-repeat: no-repeat;
       }
       .root > div {
         max-width: 720px;
@@ -34,10 +39,11 @@ const About = () =>
         font-size: 22px;
         box-sizing: border-box;
         text-align: center;
-        border: 6px solid #85ABA9;
+        border: 0px; 1px solid #85ABA9;
         border-radius: 50px;
         padding: 5px;
         font-weight: 300;
+        margin-bottom: 10px;
       }
       button {
         color: white;

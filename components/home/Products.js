@@ -32,10 +32,12 @@ const Products = ({ products }) =>
         list-style: none;
         padding: 0;
         flex-wrap: wrap;
+        margin-bottom: -30px
       }
       .root > ul > li {
         width: 30%;
         text-align: center;
+        margin-bottom: 30px;
       }
     `}</style>
   </WidthLimiter>
@@ -50,6 +52,7 @@ const ProductItem = ({ name, image, description }) =>
         text-transform: uppercase;
         font-weight: 300;
         font-size: 22px;
+        margin-bottom: 0;
       }
     `}</style>
   </div>
