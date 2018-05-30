@@ -9,7 +9,7 @@ const Products = ({ products }) =>
       <h2><Title text='Productos'  color='rgb(132, 120, 148)' /></h2>
       <ul>
         {products.length > 0 ?
-          products.map(({ data: { name, image, description } }) =>
+          products.map(({ product: { data: { name, image, description } } }) =>
             <li>
               <ProductItem
                 name={name}
@@ -31,6 +31,7 @@ const Products = ({ products }) =>
         justify-content: space-between;
         list-style: none;
         padding: 0;
+        flex-wrap: wrap;
       }
       .root > ul > li {
         width: 30%;

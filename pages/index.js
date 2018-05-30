@@ -10,15 +10,15 @@ import Products from 'components/home/Products'
 import News from 'components/home/News'
 import Contact from 'components/home/Contact'
 import MessengerChat from 'components/home/MessengerChat'
-import { getProducts } from 'lib/backend'
+import { getProducts, getHome } from 'lib/backend'
 
-const IndexPage = ({ products }) =>
+const IndexPage = ({ products, content }) =>
   <Body>
     <Head />
     <Masthead />
     <Main>
-      <About />
-      <Products products={products} />
+      <About {...content} />
+      <Products products={content.products} />
       <Contact />
     </Main>
     <Footer />
@@ -26,7 +26,7 @@ const IndexPage = ({ products }) =>
   </Body>
 
 IndexPage.getInitialProps = async ({ req }) => {
-  return { products: await getProducts() }
+  return { products: await getProducts(), content: await getHome() }
 }
 
 export default IndexPage

@@ -1,12 +1,12 @@
 import React from 'react'
 import Title from '../base/Title'
 
-const About = () =>
+const About = ({cover, title, subtitle}) =>
   <div>
-    <img src='https://subrisa.com/static/bg.jpg' />
+    <img src={cover.url} />
     <div className='wrapper' id='about'>
-      <h2><Title text='Nuestra Brisa' color='white'/></h2>
-      <p>Brisa es un nuevo rolling paper 420% chileno, que nace para ofrecer un producto de la más alta calidad, al mejor precio.</p>
+      <h2><Title text={title && title[0].text} color='white'/></h2>
+      <p>{subtitle && subtitle[0].text}</p>
     </div>
     <style jsx>{`
       img {

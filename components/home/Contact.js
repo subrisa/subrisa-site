@@ -8,6 +8,7 @@ const About = () =>
       <div>
         <p>Quer receber novidades, lançamentos bla bla. Deixe seu email bla bla.</p>
         <input type='text' placeholder='exemplo@dominio.com' />
+        <button>Me inscreva!</button>
       </div>
       <div>
         <p>Você tambem pode falar com a gente direto no Facebook, é so clicar ali -></p>
@@ -27,15 +28,22 @@ const About = () =>
       .root > div > div {
         width: 45%;
       }
-      input {
+      input,
+      button {
         width: 100%;
         font-size: 22px;
         box-sizing: border-box;
         text-align: center;
-        border: 3px solid #85ABA9;
+        border: 6px solid #85ABA9;
         border-radius: 50px;
         padding: 5px;
         font-weight: 300;
+      }
+      button {
+        color: white;
+        background: #85ABA9;
+        font-weight: bold;
+        border-width: 1px;
       }
     `}</style>
   </div>
