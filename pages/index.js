@@ -5,6 +5,7 @@ import Head from 'components/struct/Head'
 import Masthead from 'components/struct/Masthead'
 import Main from 'components/struct/Main'
 import Footer from 'components/struct/Footer'
+import AgeVerification from 'components/home/AgeVerification'
 import About from 'components/home/About'
 import Products from 'components/home/Products'
 import News from 'components/home/News'
@@ -15,14 +16,16 @@ import { getProducts, getHome } from 'lib/backend'
 const IndexPage = ({ products, content }) =>
   <Body>
     <Head />
-    <Masthead />
-    <Main>
-      <About {...content} />
-      <Products products={content.products} />
-      <Contact />
-    </Main>
-    <Footer />
-    <MessengerChat />
+    <AgeVerification>
+      <Masthead />
+      <Main>
+        <About {...content} />
+        <Products products={content.products} />
+        <Contact />
+      </Main>
+      <Footer />
+      <MessengerChat />
+    </AgeVerification>
   </Body>
 
 IndexPage.getInitialProps = async ({ req }) => {

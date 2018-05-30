@@ -7,7 +7,7 @@ const CustomHead = ({ title }) =>
   <div>
     <Head>
       <title>{'BRISA'}</title>
-      <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet" />
     </Head>
     <style jsx global>{`
       body {
@@ -21,7 +21,7 @@ const CustomHead = ({ title }) =>
         font-weight: inherit;
         font-size: inherit;
       }
-      a {
+      a, button {
         text-decoration: none;
         color: inherit;
         fill: inherit;
@@ -29,6 +29,11 @@ const CustomHead = ({ title }) =>
       }
       a:visited { color: inherit; }
       a:focus, input:focus { outline: none; }
+      button {
+        background: none;
+        border: none;
+        font-size: inherit;
+      }
     `}</style>
   </div>
 

@@ -35,7 +35,7 @@ const Header = ({ scrollTop }) =>
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 10px 20px;
+        padding: 20px;
         color: white;
         fill: white;
         position: fixed;
@@ -60,6 +60,7 @@ const Header = ({ scrollTop }) =>
       header.small {
         background: rgba(0, 0, 0, 0.8);
         transition: .9s background-color .2s;
+        padding: 10px 20px;
       }
       header.small .logoWrapper {
         width: 39px;
