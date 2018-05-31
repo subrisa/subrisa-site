@@ -23,9 +23,9 @@ const MessengerChat = ({ scrollTop }) =>
       attribution="setup_tool"
       page_id="202983340452697"
       theme_color="#847894"
-      logged_in_greeting="Hola!"
+      logged_in_greeting="Hola! Estamos aqui para ajudar."
       logged_out_greeting="Hola!"
-      greeting_dialog_delay="4"
+      greeting_dialog_delay="12"
     />
   </div>
 

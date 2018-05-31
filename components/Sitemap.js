@@ -16,9 +16,10 @@ const Sitemap = () =>
     </div>
     <style jsx>{`
       .root {
-        display: flex;
-        justify-content: space-between;
         width: 100%;
+      }
+      .root > div {
+        margin-bottom: 5px;
       }
     `}</style>
   </div>

@@ -38,6 +38,7 @@ const Products = ({ products }) =>
         width: 30%;
         text-align: center;
         margin-bottom: 30px;
+        font-weight: 300;
       }
     `}</style>
   </WidthLimiter>
