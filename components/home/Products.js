@@ -1,30 +1,39 @@
 import React from 'react'
+import { withState, compose } from 'recompose'
 import Title from '../base/Title'
 import WidthLimiter from '../struct/WidthLimiter'
 import { RichText } from 'prismic-reactjs'
 
-const Products = ({ products }) =>
+const Products = ({ products, detailedProduct, setDetailedProduct }) =>
   <WidthLimiter>
-    <div className='root' id='products'>
+    <div className={`root ${detailedProduct && 'detailed'}`} id='products'>
       <h2><Title text='Nostros Productos'  color='rgb(132, 120, 148)' /></h2>
       <ul>
         {products.length > 0 ?
-          products.map(({ product: { data: { name, image, description } } }) =>
+          products.map(({ product: { data, data: { name, image, description } } }) =>
             <li>
               <ProductItem
                 name={name}
                 image={image}
                 description={description}
+                onClick={e=>setDetailedProduct(data)}
               />
             </li>
           ):
           <div><p>No products to show</p></div>
         }
       </ul>
+      <div className='detail' onClick={e=>setDetailedProduct(null)}>
+          {detailedProduct ? <ProductDetail
+            {...detailedProduct}
+            onClickClose={e=>setDetailedProduct(null)}
+          /> : null}
+      </div>
     </div>
     <style jsx>{`
       .root {
         margin-bottom: 4rem;
+        position: relative;
       }
       .root > ul {
         display: flex;
@@ -32,7 +41,8 @@ const Products = ({ products }) =>
         list-style: none;
         padding: 0;
         flex-wrap: wrap;
-        margin-bottom: -30px
+        margin-bottom: -30px;
+        transition: .6s all;
       }
       .root > ul > li {
         width: 30%;
@@ -40,14 +50,34 @@ const Products = ({ products }) =>
         margin-bottom: 20px;
         font-weight: 300;
       }
+      .detail {
+        position: absolute;
+        top: 0; left: 20px; right: 20px; bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: .3s opacity .4s;
+      }
+      .root.detailed .detail {
+        opacity: 1;
+        pointer-events: all;
+      }
+      .root.detailed > ul {
+        filter: blur(14px);
+        opacity: 0.35;
+      }
     `}</style>
   </WidthLimiter>
 
-const ProductItem = ({ name, image, description }) =>
+const ProductItem = ({ onClick, name, image, description }) =>
   <div>
-    <h3>{RichText.render(name)}</h3>
-    <div><img src={image.thumb.url} /></div>
-    <p>{RichText.render(description)}</p>
+    <a onClick={onClick}>
+      <h3>{RichText.render(name)}</h3>
+      <div><img src={image.thumb.url} /></div>
+      <p>{RichText.render(description)}</p>
+    </a>
     <style jsx>{`
       h3 {
         text-transform: uppercase;
@@ -58,7 +88,45 @@ const ProductItem = ({ name, image, description }) =>
       p {
         font-size: 14px;
       }
+      img {
+        transition: .3s transform;
+      }
+      a:hover img {
+        transform: scale(1.05);
+      }
     `}</style>
   </div>
 
-export default Products
+  const ProductDetail = ({ onClickClose, name, image, description, technical_data }) =>
+    <div className='root'>
+      <h3>{name && RichText.render(name)}</h3>
+      <div>
+        <img src={image && image.thumb.url} />
+        <div>
+          <p>{description && RichText.render(description)}</p>
+          <p>{technical_data && RichText.render(technical_data)}</p>
+        </div>
+      </div>
+      <style jsx>{`
+        h3 {
+          text-transform: uppercase;
+          font-weight: 300;
+          font-size: 28px;
+          margin-bottom: 0;
+        }
+        p {
+          font-size: 14px;
+        }
+        img {
+          margin-right: 20px;
+        }
+        .root > div {
+          display: flex;
+          align-items: flex-start;
+        }
+      `}</style>
+    </div>
+
+export default compose(
+  withState('detailedProduct', 'setDetailedProduct', null)
+)(Products)
