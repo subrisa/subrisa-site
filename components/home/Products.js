@@ -37,7 +37,7 @@ const Products = ({ products }) =>
       .root > ul > li {
         width: 30%;
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
         font-weight: 300;
       }
     `}</style>
@@ -54,6 +54,9 @@ const ProductItem = ({ name, image, description }) =>
         font-weight: 300;
         font-size: 22px;
         margin-bottom: 0;
+      }
+      p {
+        font-size: 14px;
       }
     `}</style>
   </div>

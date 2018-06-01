@@ -21,7 +21,7 @@ const IndexPage = ({ products, content }) =>
       <Main>
         <About {...content} />
         <Products products={content.products} />
-        <Contact />
+        <Contact {...content} />
       </Main>
       <Footer />
       <MessengerChat />

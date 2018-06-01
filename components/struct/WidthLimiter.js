@@ -9,6 +9,11 @@ const WidthLimiter = ({children}) =>
         margin: 0 auto;
         padding: 1rem;
       }
+      @media only screen and (min-width: 1200px) {
+        .root {
+          max-width: 920px;
+        }
+      }
     `}</style>
   </div>
 

@@ -20,11 +20,22 @@ const About = ({cover, title, subtitle}) =>
         left: 20px;
         right: 20px;
         color: white;
+        transition: 1s opacity 1.4s;
       }
       p {
         max-width: 600px;
         text-align: center;
         margin-left: auto; margin-right: auto;
+        font-size: 20px;
+        font-weight: 300;
+      }
+    `}</style>
+    <style jsx global>{`
+      .locked #about.wrapper{
+        opacity: 0;
+      }
+      #about.wrapper {
+        opacity: 1;
       }
     `}</style>
   </div>
