@@ -23,12 +23,7 @@ const About = ({ contact_title, newsletter_text, contact_text  }) =>
         padding-bottom: 6rem;
       }
       .root > div {
-        display: flex;
-        justify-content: space-between;
         font-weight: 300;
-      }
-      .root > div > div {
-        width: 45%;
       }
       input,
       button {
@@ -46,6 +41,15 @@ const About = ({ contact_title, newsletter_text, contact_text  }) =>
         font-weight: bold;
         margin-top: 10px;
         padding: 7px;
+      }
+      @media screen and (min-width: 600px) {
+        .root > div {
+          display: flex;
+          justify-content: space-between;
+        }
+        .root > div > div {
+          width: 45%;
+        }
       }
     `}</style>
   </WidthLimiter>
