@@ -28,7 +28,7 @@ const Header = ({ scrollTop }) =>
         <div className='logoWrapper icon'><LogoIcon /></div>
       </a>
     </div>
-    <div className='menuWrapper'><MainMenu /></div>
+    <div className='main menuWrapper'><MainMenu /></div>
     <div className='menuWrapper'><SocialMenu /></div>
     <style jsx>{`
       header {
@@ -45,7 +45,7 @@ const Header = ({ scrollTop }) =>
         box-shadow: 0px 140px 140px -150px rgba(0,0,0,0.8) inset
       }
       .logoWrapper {
-        width: 117px;
+        width: 91px;
         transition: .5s all .3s;
         backface-visibility: hidden;
         font-size: 0;
@@ -56,7 +56,7 @@ const Header = ({ scrollTop }) =>
         top: 0;
       }
       header .menuWrapper {
-        transition: 1s all;
+        transition: 1s all .2s;
       }
       header.small {
         background: rgba(0, 0, 0, 0.8);
@@ -75,6 +75,19 @@ const Header = ({ scrollTop }) =>
       }
       header.small .menuWrapper {
         transition: .3s all;
+      }
+      @media screen and (max-width: 600px) {
+        header.small .main.menuWrapper {
+          margin-top: -120px;
+          transform: translateX(20px);
+          opacity: 0;
+          transition: .3s all;
+        }
+      }
+      @media screen and (min-width: 600px) {
+        .logoWrapper {
+          width: 117px;
+        }
       }
     `}</style>
   </header>

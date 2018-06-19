@@ -8,14 +8,18 @@ const MainMenu = () =>
     <a href='/#contact' onClick={ handleAnchorClick }>Contacto</a>
     <style jsx>{`
       nav {
-        display: flex;
-        justify-content: space-between;
         text-transform: uppercase;
         font-size: 1em;
       }
-      nav a { margin: 0 20px; }
+      nav a { margin: 8px 20px; display: block; }
       nav a:first-child: { margin-left: 0 }
       nav a:last-child: { margin-right: 0 }
+      @media screen and (min-width: 600px) {
+        nav {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
     `}</style>
   </nav>
 
