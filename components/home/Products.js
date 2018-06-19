@@ -45,7 +45,6 @@ const Products = ({ products, detailedProduct, setDetailedProduct }) =>
         transition: .6s all;
       }
       .root > ul > li {
-        width: 30%;
         text-align: center;
         margin-bottom: 20px;
         font-weight: 300;
@@ -67,6 +66,11 @@ const Products = ({ products, detailedProduct, setDetailedProduct }) =>
       .root.detailed > ul {
         filter: blur(14px);
         opacity: 0.35;
+      }
+      @media screen and (min-width: 600px) {
+        .root > ul > li {
+          width: 30%;
+        }
       }
     `}</style>
   </WidthLimiter>
