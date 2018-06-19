@@ -42,6 +42,7 @@ const Header = ({ scrollTop }) =>
         left: 0; right: 0; top: 0;
         transition: .9s all;
         z-index: 5000;
+        box-shadow: 0px 140px 140px -150px rgba(0,0,0,0.8) inset
       }
       .logoWrapper {
         width: 117px;

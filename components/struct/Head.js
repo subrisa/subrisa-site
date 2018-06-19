@@ -13,6 +13,7 @@ const CustomHead = ({ title }) =>
       body {
         margin: 0;
         font-family: 'Lato', sans-serif;
+        overflow-x: hidden;
       }
       img {
         max-width: 100%;
