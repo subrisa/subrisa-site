@@ -50,14 +50,14 @@ const Products = ({ products, detailedProduct, setDetailedProduct }) =>
         font-weight: 300;
       }
       .detail {
-        position: absolute;
+        position: fixed;
         top: 0; left: 20px; right: 20px; bottom: 0;
         display: flex;
         align-items: center;
         justify-content: center;
         opacity: 0;
         pointer-events: none;
-        transition: .3s opacity .4s;
+        transition: .5s opacity .4s;
       }
       .root.detailed .detail {
         opacity: 1;
@@ -70,6 +70,9 @@ const Products = ({ products, detailedProduct, setDetailedProduct }) =>
       @media screen and (min-width: 600px) {
         .root > ul > li {
           width: 30%;
+        }
+        .detail {
+          postion: absolute;
         }
       }
     `}</style>
@@ -124,9 +127,16 @@ const ProductItem = ({ onClick, name, image, description }) =>
         img {
           margin-right: 20px;
         }
-        .root > div {
-          display: flex;
-          align-items: flex-start;
+        @media screen and (min-width: 600px) {
+          .root > div {
+            display: flex;
+            align-items: flex-start;
+          }
+        }
+        @media screen and (max-width: 600px) {
+          .root {
+            text-align: center;
+          }
         }
       `}</style>
     </div>
