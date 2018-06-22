@@ -1,6 +1,7 @@
 import React from 'react'
 import Title from '../base/Title'
 import WidthLimiter from '../struct/WidthLimiter'
+import { RichText } from 'prismic-reactjs'
 
 const About = ({ contact_title, newsletter_text, contact_text  }) =>
   <WidthLimiter>
@@ -8,13 +9,13 @@ const About = ({ contact_title, newsletter_text, contact_text  }) =>
       <h2><Title text={contact_title[0].text} color='#85ABA9' /></h2>
       <div>
         <div>
-          <p>{newsletter_text && newsletter_text[0].text}</p>
+          <p>{newsletter_text && RichText.render(newsletter_text)}</p>
           <input type='text' placeholder='Maria Juana Rojas' autocorrect="off" spellcheck="false" />
           <input type='text' placeholder='marijuana@ejemplo.com' autocorrect="off" autocapitalize="off" spellcheck="false" />
           <button>Suscríbete</button>
         </div>
         <div>
-          <p>{contact_text && contact_text[0].text}</p>
+          <p>{contact_text && RichText.render(contact_text)}</p>
         </div>
       </div>
     </div>
