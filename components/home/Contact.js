@@ -11,7 +11,7 @@ const About = ({ contact_title, newsletter_text, contact_text  }) =>
           <p>{newsletter_text && newsletter_text[0].text}</p>
           <input type='text' placeholder='Maria Juana Rojas' autocorrect="off" spellcheck="false" />
           <input type='text' placeholder='marijuana@ejemplo.com' autocorrect="off" autocapitalize="off" spellcheck="false" />
-          <button>Me inscreva!</button>
+          <button>Suscríbete</button>
         </div>
         <div>
           <p>{contact_text && contact_text[0].text}</p>

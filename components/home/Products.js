@@ -1,5 +1,5 @@
 import React from 'react'
-import { withState, compose } from 'recompose'
+import { withState, compose, withProps } from 'recompose'
 import Title from '../base/Title'
 import WidthLimiter from '../struct/WidthLimiter'
 import { RichText } from 'prismic-reactjs'
@@ -104,11 +104,11 @@ const ProductItem = ({ onClick, name, image, description }) =>
     `}</style>
   </div>
 
-  const ProductDetail = ({ onClickClose, name, image, description, technical_data }) =>
+  const ProductDetail = ({ onClickClose, name, detail_image, description, technical_data }) =>
     <div className='root'>
       <h3>{name && RichText.render(name)}</h3>
       <div>
-        <img src={image && image.thumb.url} />
+        <img src={detail_image && detail_image.url} />
         <div>
           <p>{description && RichText.render(description)}</p>
           <p>{technical_data && RichText.render(technical_data)}</p>
@@ -142,5 +142,6 @@ const ProductItem = ({ onClick, name, image, description }) =>
     </div>
 
 export default compose(
-  withState('detailedProduct', 'setDetailedProduct', null)
+  withState('detailedProduct', 'setDetailedProduct', null),
+  withProps(console.log)
 )(Products)
