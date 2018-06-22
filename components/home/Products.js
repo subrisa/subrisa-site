@@ -72,7 +72,7 @@ const Products = ({ products, detailedProduct, setDetailedProduct }) =>
           width: 30%;
         }
         .detail {
-          postion: absolute;
+          position: absolute;
         }
       }
     `}</style>
