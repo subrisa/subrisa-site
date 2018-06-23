@@ -36,6 +36,25 @@ const CustomHead = ({ title }) =>
         border: none;
         font-size: inherit;
       }
+      form input,
+      form button,
+      form textarea {
+        font-size: 20px;
+        box-sizing: border-box;
+        border: 0;
+        border-radius: 16px;
+        font-weight: 300;
+        background: transparent;
+        color: inherit;
+        width: 100%;
+      }
+      form button {
+        color: white;
+        padding: 6px 12px;
+        background: #85ABA9;
+        font-weight: bold;
+        margin-top: 10px;
+      }
     `}</style>
   </div>
 

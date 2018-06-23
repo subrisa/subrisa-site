@@ -99,7 +99,7 @@ const ProductItem = ({ onClick, name, image, description }) =>
         transition: .3s transform;
       }
       a:hover img {
-        transform: scale(1.05);
+        transform: scale(1.05) rotateY(15deg);
       }
     `}</style>
   </div>

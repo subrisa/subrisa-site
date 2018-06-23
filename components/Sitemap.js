@@ -2,6 +2,7 @@ import React from 'react'
 
 const Sitemap = () =>
   <div className='root'>
+    <label>Menu</label>
     <div>
       <a>Nosotros</a>
     </div>
@@ -15,11 +16,14 @@ const Sitemap = () =>
       <a>Contacto</a>
     </div>
     <style jsx>{`
+      label {
+        font-weight: bold;
+      }
       .root {
         width: 100%;
       }
       .root > div {
-        margin-bottom: 5px;
+        margin-top: 5px;
       }
     `}</style>
   </div>

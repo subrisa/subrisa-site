@@ -10,12 +10,15 @@ const About = ({ contact_title, newsletter_text, contact_text  }) =>
       <div>
         <div>
           <p>{newsletter_text && RichText.render(newsletter_text)}</p>
-          <input type='text' placeholder='Maria Juana Rojas' autocorrect="off" spellcheck="false" />
-          <input type='text' placeholder='marijuana@ejemplo.com' autocorrect="off" autocapitalize="off" spellcheck="false" />
-          <button>Suscríbete</button>
         </div>
         <div>
-          <p>{contact_text && RichText.render(contact_text)}</p>
+          <form>
+            <p>{contact_text && RichText.render(contact_text)}</p>
+            <input type='text' placeholder='Maria Juana Rojas' autocorrect="off" spellcheck="false" />
+            <input type='text' placeholder='marijuana@ejemplo.com' autocorrect="off" autocapitalize="off" spellcheck="false" />
+            <textarea placeholder='Sua Mensagem' rows='1' />
+            <button>Enviar</button>
+          </form>
         </div>
       </div>
     </div>
@@ -25,23 +28,6 @@ const About = ({ contact_title, newsletter_text, contact_text  }) =>
       }
       .root > div {
         font-weight: 300;
-      }
-      input,
-      button {
-        width: 100%;
-        font-size: 20px;
-        box-sizing: border-box;
-        text-align: center;
-        border: 0px; 1px solid #85ABA9;
-        border-radius: 50px;
-        font-weight: 300;
-      }
-      button {
-        color: white;
-        background: #85ABA9;
-        font-weight: bold;
-        margin-top: 10px;
-        padding: 7px;
       }
       @media screen and (min-width: 600px) {
         .root > div {

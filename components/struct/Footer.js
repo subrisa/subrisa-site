@@ -16,6 +16,13 @@ const Footer = () =>
           <div className='sitemap'>
             <Sitemap />
           </div>
+          <div className='newsletter'>
+            <form>
+              <label>Quer saber mais sobre a Brisa? Deixe seu email e assine nossa newsletter.</label>
+              <input type='text' placeholder='marijuana@ejemplo.com' autocorrect="off" autocapitalize="off" spellcheck="false" />
+              <button>Suscríbete</button>
+            </form>
+          </div>
         </div>
       </WidthLimiter>
       <style jsx>{`
@@ -36,6 +43,7 @@ const Footer = () =>
         }
         .icons {
           width: 90px;
+          padding-right: 40px;
         }
         .icons > div {
           display: flex;
@@ -43,7 +51,10 @@ const Footer = () =>
           margin-top: 10px;
         }
         .sitemap {
-          width: 500px;
+          padding-right: 20px;
+        }
+        .newsletter {
+          width: 40%;
         }
       `}</style>
     </footer>
