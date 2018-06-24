@@ -56,6 +56,12 @@ const Footer = () =>
         .newsletter {
           width: 40%;
         }
+        form button {
+          background: transparent;
+          border: 1px solid white;
+          padding-top: 5px;
+          padding-bottom: 5px;
+        }
       `}</style>
     </footer>
 

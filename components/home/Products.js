@@ -99,7 +99,7 @@ const ProductItem = ({ onClick, name, image, description }) =>
         transition: .3s transform;
       }
       a:hover img {
-        transform: scale(1.05) rotateY(15deg);
+        transform: scale(1.05);
       }
     `}</style>
   </div>
@@ -126,6 +126,7 @@ const ProductItem = ({ onClick, name, image, description }) =>
         }
         img {
           margin-right: 20px;
+          width: 60%;
         }
         @media screen and (min-width: 600px) {
           .root > div {
