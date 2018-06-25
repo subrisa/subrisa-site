@@ -7,7 +7,7 @@ const CustomHead = ({ title }) =>
   <div>
     <Head>
       <title>{'BRISA'}</title>
-      <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css?family=Lato:300,400,500,600" rel="stylesheet" />
     </Head>
     <style jsx global>{`
       body {
