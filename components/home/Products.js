@@ -143,6 +143,5 @@ const ProductItem = ({ onClick, name, image, description }) =>
     </div>
 
 export default compose(
-  withState('detailedProduct', 'setDetailedProduct', null),
-  withProps(console.log)
+  withState('detailedProduct', 'setDetailedProduct', null)
 )(Products)
