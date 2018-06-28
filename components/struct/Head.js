@@ -8,6 +8,13 @@ const CustomHead = ({ title }) =>
     <Head>
       <title>{'BRISA'}</title>
       <link href="https://fonts.googleapis.com/css?family=Lato:300,400,500,600" rel="stylesheet" />
+      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://subrisa.com/static/favicons/apple-touch-icon-144x144.png" />
+      <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://subrisa.com/static/favicons/apple-touch-icon-152x152.png" />
+      <link rel="icon" type="image/png" href="https://subrisa.com/static/favicons/favicon-32x32.png" sizes="32x32" />
+      <link rel="icon" type="image/png" href="https://subrisa.com/static/favicons/favicon-16x16.png" sizes="16x16" />
+      <meta name="application-name" content="Brisa"/>
+      <meta name="msapplication-TileColor" content="#FFFFFF" />
+      <meta name="msapplication-TileImage" content="https://subrisa.com/static/favicons/mstile-144x144.png" />   
     </Head>
     <style jsx global>{`
       body {
