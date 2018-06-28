@@ -12,7 +12,7 @@ const Title = ({ text, color }) =>
         position: relative;
         display: block;
         font-weight: 300;
-        padding-bottom: 0.35em;
+        padding-bottom: 0.55em;
       }
       .underline {
         position: absolute;
