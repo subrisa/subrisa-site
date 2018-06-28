@@ -20,7 +20,7 @@ const IndexPage = ({ products, content }) =>
       <Masthead />
       <Main>
         <About {...content} />
-        <Products products={content.products} />
+        <Products products={products} />
         <Contact {...content} />
       </Main>
       <Footer />

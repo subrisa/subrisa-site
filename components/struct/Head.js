@@ -47,13 +47,15 @@ const CustomHead = ({ title }) =>
         background: transparent;
         color: inherit;
         width: 100%;
+        font-family: inherit;
       }
       form button {
         color: white;
         padding: 6px 12px;
         background: #85ABA9;
-        font-weight: bold;
-        margin-top: 10px;
+        font-weight: 300;
+        text-transform: uppercase;
+        margin-top: 1em;
       }
     `}</style>
   </div>
