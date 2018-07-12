@@ -18,7 +18,7 @@ const Footer = () =>
           </div>
           <div className='newsletter'>
             <form>
-              <label>Quer saber mais sobre a Brisa? Deixe seu email e assine nossa newsletter.</label>
+              <label>¿Quieres saber más sobre la Brisa? Deja tu email y recibe nuestro boletín de noticias.</label>
               <input type='text' placeholder='marijuana@ejemplo.com' autocorrect="off" autocapitalize="off" spellcheck="false" />
               <button>Suscríbete</button>
             </form>
