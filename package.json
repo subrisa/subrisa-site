@@ -27,9 +27,9 @@
     "now": "^11.1.7"
   },
   "scripts": {
-    "dev": "next",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production node server.js",
     "deploy": "now -e NODE_ENV=production --token $NOW_TOKEN --npm --public -T brisa",
     "alias": "now alias --token=$NOW_TOKEN -T brisa"
   },

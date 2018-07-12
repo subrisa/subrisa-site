@@ -9,8 +9,8 @@ const Footer = () =>
           <div className='icons'>
             <LogoIcon />
             <div>
-             <Facebook />
-             <Instagram />
+              <a href='https://www.facebook.com/SuBrisaChile/' target='_blank'><Facebook /></a>
+              <a href='http://instagram.com/brisachile' target='_blank'><Instagram /></a>
             </div>
           </div>
           <div className='sitemap'>

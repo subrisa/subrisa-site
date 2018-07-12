@@ -48,6 +48,9 @@ const Products = ({ products, detailedProduct, setDetailedProduct }) =>
         text-align: center;
         margin-bottom: 20px;
         font-weight: 300;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
       }
       .detail {
         position: fixed;
