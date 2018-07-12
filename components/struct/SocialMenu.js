@@ -4,10 +4,10 @@ import { Facebook, Instagram } from '../base/Icons'
 const SocialMenu = () =>
   <nav>
     <div>
-      <a href='http://facebook.com/brisachile' target='_blank'><Facebook /></a>
+      <a href='https://www.facebook.com/SuBrisaChile/' target='_blank'><Facebook /></a>
     </div>
     <div>
-      <a href='http://facebook.com/brisachile' target='_blank'><Instagram /></a>
+      <a href='http://instagram.com/brisachile' target='_blank'><Instagram /></a>
     </div>
     <style jsx>{`
       nav {

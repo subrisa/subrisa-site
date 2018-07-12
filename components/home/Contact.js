@@ -13,7 +13,7 @@ const About = ({ contact_title, newsletter_text, contact_text  }) =>
           <h3>{contact_text && RichText.render(contact_text)}</h3>
           <input type='text' placeholder='Maria Juana Rojas' autocorrect="off" spellcheck="false" />
           <input type='text' placeholder='marijuana@ejemplo.com' autocorrect="off" autocapitalize="off" spellcheck="false" />
-          <textarea placeholder='Sua Mensagem' rows='1' />
+          <textarea placeholder='Su Mensaje' rows='1' />
           <button>Enviar</button>
         </form>
       </div>

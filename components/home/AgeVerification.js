@@ -13,10 +13,10 @@ const AgeVerification = ({children, locked, setLocked, loading}) =>
       </div>
       <div className='modal'>
         <div>
-          <span>Você é maior de 18 anos?</span>
+          <span>Es mayor de 18 años?</span>
           <div>
-            <button onClick={()=>setLocked(!locked)}>Sim</button>
-            <button onClick={()=>window.location.href = 'https://www.fantasilandia.cl'}>Não</button>
+            <button onClick={()=>setLocked(!locked)}>Si</button>
+            <button onClick={()=>window.location.href = 'https://www.fantasilandia.cl'}>No</button>
           </div>
         </div>
       </div>
