@@ -36,7 +36,7 @@
     "pretest": "eslint --ignore-path/ .gitignore .",
     "deploy": "now -e NODE_ENV=production -e MG_KEY=$MG_KEY --token $NOW_TOKEN --npm --public -T brisa",
     "deploy:prod": "now -e NODE_ENV=production -e MG_KEY=$MG_KEY --token $NOW_TOKEN --npm",
-    "alias": "now alias fora-$TRAVIS_PULL_REQUEST_BRANCH$TRAVIS_BRANCH --token=$NOW_TOKEN -T brisa",
+    "alias": "now alias subrisa-com-$TRAVIS_PULL_REQUEST_BRANCH$TRAVIS_BRANCH --token=$NOW_TOKEN -T brisa",
     "alias:prod": "now alias subrisa.com --token=$NOW_TOKEN && now alias www.subrisa.com --token=$NOW_TOKEN"
   },
   "now": {
