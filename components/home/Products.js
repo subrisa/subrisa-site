@@ -11,7 +11,7 @@ const Products = ({ products, detailedProduct, setDetailedProduct }) =>
       <ul>
         {products.length > 0 ?
           products.map(({ data, data: { name, image, description } }) =>
-            <li>
+            <li key={name}>
               <ProductItem
                 name={name}
                 image={image}

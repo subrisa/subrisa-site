@@ -15,7 +15,9 @@
   "homepage": "https://github.com/subrisa/subrisa-site#readme",
   "dependencies": {
     "babel-plugin-module-resolver": "^3.1.1",
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "mailgun-js": "^0.20.0",
     "next": "^5.1.0",
     "nprogress": "^0.2.0",
     "prismic-javascript": "^1.5.0-beta.3",
@@ -31,8 +33,11 @@
     "dev": "node server.js",
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
-    "deploy": "now -e NODE_ENV=production --token $NOW_TOKEN --npm --public -T brisa",
-    "alias": "now alias --token=$NOW_TOKEN -T brisa"
+    "pretest": "eslint --ignore-path/ .gitignore .",
+    "deploy": "now -e NODE_ENV=production -e MG_KEY=$MG_KEY --token $NOW_TOKEN --npm --public -T brisa",
+    "deploy:prod": "now -e NODE_ENV=production -e MG_KEY=$MG_KEY --token $NOW_TOKEN --npm",
+    "alias": "now alias fora-$TRAVIS_PULL_REQUEST_BRANCH$TRAVIS_BRANCH --token=$NOW_TOKEN -T brisa",
+    "alias:prod": "now alias subrisa.com --token=$NOW_TOKEN && now alias www.subrisa.com --token=$NOW_TOKEN"
   },
   "now": {
     "name": "subrisa-com",

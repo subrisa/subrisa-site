@@ -19,7 +19,7 @@ const Footer = () =>
           <div className='newsletter'>
             <form>
               <label>¿Quieres saber más sobre la Brisa? Deja tu email y recibe nuestro boletín de noticias.</label>
-              <input type='text' placeholder='marijuana@ejemplo.com' autocorrect="off" autocapitalize="off" spellcheck="false" />
+              <input type='text' placeholder='marijuana@ejemplo.com' autoCorrect="off" autoCapitalize="off" spellCheck="false" />
               <button>Suscríbete</button>
             </form>
           </div>

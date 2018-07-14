@@ -1,5 +1,7 @@
 const express = require('express')
+const bodyParser = require('body-parser')
 const next = require('next')
+const mailgun = require('mailgun-js')({apiKey: process.env.MG_KEY, domain: 'mg.subrisa.com'})
 
 const port = parseInt(process.env.PORT, 10) || 3000
 const dev = process.env.NODE_ENV !== 'production'
@@ -23,6 +25,20 @@ app.prepare()
     server.post('/signup/:email', (req, res) => {
       res.send('success')
     });
+
+    server.post('/contact/form', bodyParser.urlencoded({ extended: true }), (req, res) => {
+      console.log(req.body)
+      const data = {
+        from: 'donotreply@subrisa.com',
+        to: 'contacto@subrisa.com',
+        subject: `Formulario do site: ${req.body.name} - ${req.body.email}`,
+        text: req.body.message
+      }
+      mailgun.messages().send(data, function (err, body) {
+        if(err) return res.status(500).json(err)
+        res.json({success: true})
+      });
+    })
 
     server.get('*', (req, res) => {
       return handle(req, res)

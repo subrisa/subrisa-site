@@ -11,10 +11,12 @@ const About = ({ contact_title, newsletter_text, contact_text  }) =>
         <form>
           <br />
           <h3>{contact_text && RichText.render(contact_text)}</h3>
-          <input type='text' placeholder='Maria Juana Rojas' autocorrect="off" spellcheck="false" />
-          <input type='text' placeholder='marijuana@ejemplo.com' autocorrect="off" autocapitalize="off" spellcheck="false" />
-          <textarea placeholder='Su Mensaje' rows='1' />
-          <button>Enviar</button>
+          <form method="post" action='/contact/form'>
+            <input type='text' name='name' placeholder='Maria Juana Rojas' autoCorrect="off" spellCheck="false" />
+            <input type='text' name='email' placeholder='marijuana@ejemplo.com' autoCorrect="off" autoCapitalize="off" spellCheck="false" />
+            <textarea name='message' placeholder='Su Mensaje' rows='1' />
+            <button type='submit'>Enviar</button>
+          </form>
         </form>
       </div>
     </div>
