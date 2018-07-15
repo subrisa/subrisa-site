@@ -45,7 +45,7 @@ const CustomHead = ({ title }) =>
         cursor: pointer;
       }
       a:visited { color: inherit; }
-      a:focus, input:focus { outline: none; }
+      a:focus, input:focus, textarea:focus { outline: none; }
       button {
         background: none;
         border: none;
@@ -64,6 +64,10 @@ const CustomHead = ({ title }) =>
         width: 100%;
         font-family: inherit;
       }
+      form .error,
+      form .error::placeholder {
+        color: red
+      }
       form button {
         color: white;
         padding: 6px 12px;
@@ -71,6 +75,10 @@ const CustomHead = ({ title }) =>
         font-weight: 300;
         text-transform: uppercase;
         margin-top: 1em;
+      }
+      form button:disabled {
+        opacity: 0.7;
+        pointer-events: none;
       }
     `}</style>
   </div>

@@ -2,22 +2,15 @@ import React from 'react'
 import Title from '../base/Title'
 import WidthLimiter from '../struct/WidthLimiter'
 import { RichText } from 'prismic-reactjs'
+import ContactForm from '../contact/ContactForm';
 
-const About = ({ contact_title, newsletter_text, contact_text  }) =>
+const Contact = ({ contact_title, newsletter_text, contact_text  }) =>
   <WidthLimiter>
     <div className='root' id='contact'>
       <h2><Title text={contact_title[0].text} color='#85ABA9' /></h2>
       <div>
-        <form>
-          <br />
-          <h3>{contact_text && RichText.render(contact_text)}</h3>
-          <form method="post" action='/contact/form'>
-            <input type='text' name='name' placeholder='Maria Juana Rojas' autoCorrect="off" spellCheck="false" />
-            <input type='text' name='email' placeholder='marijuana@ejemplo.com' autoCorrect="off" autoCapitalize="off" spellCheck="false" />
-            <textarea name='message' placeholder='Su Mensaje' rows='1' />
-            <button type='submit'>Enviar</button>
-          </form>
-        </form>
+        <h3>{contact_text && RichText.render(contact_text)}</h3>
+        <ContactForm />
       </div>
     </div>
     <style jsx>{`
@@ -42,4 +35,4 @@ const About = ({ contact_title, newsletter_text, contact_text  }) =>
   </WidthLimiter>
 
 
-export default About
+export default Contact

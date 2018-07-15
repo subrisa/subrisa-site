@@ -14,9 +14,12 @@
   },
   "homepage": "https://github.com/subrisa/subrisa-site#readme",
   "dependencies": {
+    "await-to-js": "^2.0.1",
     "babel-plugin-module-resolver": "^3.1.1",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "formik": "^1.0.1",
+    "isomorphic-unfetch": "^2.0.0",
     "mailgun-js": "^0.20.0",
     "next": "^5.1.0",
     "nprogress": "^0.2.0",

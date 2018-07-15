@@ -10,8 +10,8 @@ const Products = ({ products, detailedProduct, setDetailedProduct }) =>
       <h2><Title text='Nuestros Productos'  color='rgb(132, 120, 148)' /></h2>
       <ul>
         {products.length > 0 ?
-          products.map(({ data, data: { name, image, description } }) =>
-            <li key={name}>
+          products.map(({ data, data: { name, image, description, id } }) =>
+            <li key={id}>
               <ProductItem
                 name={name}
                 image={image}
@@ -86,7 +86,7 @@ const ProductItem = ({ onClick, name, image, description }) =>
     <a onClick={onClick}>
       <h3>{RichText.render(name)}</h3>
       <div><img src={image.thumb.url} /></div>
-      <p>{RichText.render(description)}</p>
+      {RichText.render(description)}
     </a>
     <style jsx>{`
       h3 {
@@ -113,8 +113,8 @@ const ProductItem = ({ onClick, name, image, description }) =>
       <div>
         <img src={detail_image && detail_image.url} />
         <div>
-          <p>{description && RichText.render(description)}</p>
-          <p>{technical_data && RichText.render(technical_data)}</p>
+          {description && RichText.render(description)}
+          {technical_data && RichText.render(technical_data)}
         </div>
       </div>
       <style jsx>{`

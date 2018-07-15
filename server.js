@@ -26,8 +26,7 @@ app.prepare()
       res.send('success')
     });
 
-    server.post('/contact/form', bodyParser.urlencoded({ extended: true }), (req, res) => {
-      console.log(req.body)
+  server.post('/contact/form', bodyParser.json({type: '*/*'}), (req, res) => {
       const data = {
         from: 'donotreply@subrisa.com',
         to: 'contacto@subrisa.com',
