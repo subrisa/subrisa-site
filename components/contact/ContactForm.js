@@ -53,7 +53,7 @@ const ContactForm = ({
         onChange={handleChange}
         onBlur={handleBlur}
         value={values.message}
-        className={`${errors.message && 'error'}`}
+        className={`${touched.message && errors.message && 'error'}`}
       />
       <button
         type='submit'
