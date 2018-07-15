@@ -13,7 +13,7 @@ import Contact from 'components/home/Contact'
 import MessengerChat from 'components/home/MessengerChat'
 import { getProducts, getHome } from 'lib/backend'
 
-const IndexPage = ({ products, content }) =>
+const IndexPage = ({ content }) =>
   <Body>
     <Head />
     <AgeVerification>
@@ -29,7 +29,7 @@ const IndexPage = ({ products, content }) =>
   </Body>
 
 IndexPage.getInitialProps = async ({ req }) => {
-  return { products: await getProducts(), content: await getHome() }
+  return { content: await getHome() }
 }
 
 export default IndexPage

@@ -10,7 +10,7 @@ const Products = ({ products, detailedProduct, setDetailedProduct }) =>
       <h2><Title text='Nuestros Productos'  color='rgb(132, 120, 148)' /></h2>
       <ul>
         {products.length > 0 ?
-          products.map(({ data, data: { name, image, description, id } }) =>
+          products.map(({ id, data, data: { name, image, description } }) =>
             <li key={id}>
               <ProductItem
                 name={name}

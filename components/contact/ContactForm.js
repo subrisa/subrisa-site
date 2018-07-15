@@ -58,9 +58,7 @@ const ContactForm = ({
       <button
         type='submit'
         disabled={isSubmitting || errors.email || errors.message}
-      >
-          Enviar
-      </button>
+      >Enviar</button>
     </form>
     <style jsx>{`
       .root {
@@ -71,6 +69,7 @@ const ContactForm = ({
 
 export default compose(
   withFormik({
+    mapPropsToValues: props => ({ name: '', email: '', message: '' }),
     handleSubmit: async (values, {setSubmitting}) => {
       const [ err, res ] = await to(fetch("/contact/form", {
         method: "POST",
