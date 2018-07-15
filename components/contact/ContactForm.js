@@ -60,11 +60,6 @@ const ContactForm = ({
         disabled={isSubmitting || errors.email || errors.message}
       >Enviar</button>
     </form>
-    <style jsx>{`
-      .root {
-        
-      }
-    `}</style>
   </div>
 
 export default compose(
