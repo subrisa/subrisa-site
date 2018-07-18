@@ -70,15 +70,17 @@ export default compose(
         method: "POST",
         body: JSON.stringify(values)
       }))
-      if (err || res.statusCode != 200) return
-      alert('Su mensaje ha sido enviado')
+      if (err || res.statusCode != 200) {
+        console.log(err, res)
+      }
+      alert('Su mensaje ha sido enviado.')
       setSubmitting(false)
     },
     validate: (values, props) => {
-      const errors = {
-        email: validateEmail(values.email),
-        message: values.message ? false : 'Required'
-      }
+      const errors = {}
+      const emailError = validateEmail(values.email)
+      if (emailError) errors.email = emailError
+      if (!values.message) errors.message = 'required'
       return errors
     }
   })
