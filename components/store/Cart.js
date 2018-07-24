@@ -9,7 +9,9 @@ const Cart = ({ checkoutId }) =>
       {checkoutId && <CartContent checkoutId={checkoutId}/>}
     </div>
     <style jsx>{`
-
+      .root {
+        display: block;
+      }
     `}</style>
   </WidthLimiter>
 
