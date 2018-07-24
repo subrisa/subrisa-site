@@ -1,5 +1,3 @@
-import React from 'react'
-
 const WidthLimiter = ({children}) =>
   <div className='root'>
     {children}

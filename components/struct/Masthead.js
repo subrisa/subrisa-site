@@ -20,8 +20,8 @@ const enhance = compose(
   })
 )
 
-const Header = ({ scrollTop }) =>
-  <header className={scrollTop > 60 && 'small'}>
+const Header = ({ scrollTop, showSmall }) =>
+  <header className={(scrollTop > 60 || showSmall) && 'small'}>
     <div style={{position: 'relative'}}>
       <a href='/#' onClick={handleAnchorClick}>
         <div className='logoWrapper full'><Logo /></div>
