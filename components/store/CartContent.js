@@ -29,16 +29,16 @@ const CartContent = ({checkout}) =>
         justify-content: space-between;
       }
       .items > div > div:first-child {
-        width: 2.2em;
-        padding-right: 5px;
+        width: 2.5em;
+        padding-right: 7px;
       }
       .title {
-        
+        font-weight: 300;
       }
       .items > div > div:last-child {
-        width: 40px;
+        width: 50px;
         padding-left: 10px;
-        font-weight: bold;
+        text-align: right;
       }
       .prices {
         margin: 1em  0 0.5em 0;
@@ -46,9 +46,11 @@ const CartContent = ({checkout}) =>
       .prices > div {
         display: flex;
         justify-content: space-between;
+        font-weight: 300;
       }
       .prices > div > span:last-child {
         font-weight: 700;
+        text-align: right;
       }
     `}</style>
   </div>

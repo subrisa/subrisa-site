@@ -10,9 +10,7 @@ const Cart = ({ checkoutId }) =>
     {checkoutId && <CartContent checkoutId={checkoutId}/>}
     <style jsx>{`
       h3 {
-        margin: 2em 0 1em 0;
-        fill: #85ABA9;
-        color: #85ABA9;
+        margin: 2em 0 .75em 0;
         font-size: 1.5em;
         font-weight: 300;
         line-height: 1em;

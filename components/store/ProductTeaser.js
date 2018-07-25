@@ -30,13 +30,14 @@ const ProductList = ({title, price, images, handleAddToCartClick, ...product}) =
         min-height: 2.5em;
       }
       .price {
-        font-weight: 900;
-        font-size: 1rem;
+        font-weight: 700;
+        font-size: 1.333em;
+        
       }
       a {
         position: absolute;
         right: 5px;
-        bottom: -7px;
+        bottom: -5px;
         margin-top: 100%;
         background: ;
         padding: 0.2em 0.3em;

@@ -30,6 +30,8 @@ const CustomHead = ({ title }) =>
         font-family: 'Lato', sans-serif;
         overflow-x: hidden;
         font-size: 12pt;
+        color: #131516;
+        fill: #131516;
       }
       img {
         max-width: 100%;
