@@ -6,13 +6,24 @@ import { CartIcon } from '../base/Icons';
 
 const Cart = ({ checkoutId }) => 
   <div className='root'>
-    <h3><CartIcon /></h3>
+    <h3><span><CartIcon /></span>CARRO</h3>
     {checkoutId && <CartContent checkoutId={checkoutId}/>}
     <style jsx>{`
       h3 {
-        width: 65px;
-        margin: 3em auto 1.5em;
+        margin: 2em 0 1em 0;
         fill: #85ABA9;
+        color: #85ABA9;
+        font-size: 1.5em;
+        font-weight: 300;
+        line-height: 1em;
+        text-align: center;
+      }
+      h3 span {
+        width: 1em;
+        height: 1em;
+        display: inline-block;
+        margin-right: 0.2em;
+        transform: translateY(3px)
       }
     `}</style>
   </div>

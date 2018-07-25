@@ -15,7 +15,7 @@ const Sidebar = ({children}) =>
           .root > div:first-child {
             flex: 1;
             display: flex;
-            padding-right: 1rem;
+            padding-right: 3.33rem;
           }
           .root > div:last-child {
             flex: 0 0 12em;

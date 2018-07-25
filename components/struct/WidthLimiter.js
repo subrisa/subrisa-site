@@ -3,7 +3,7 @@ const WidthLimiter = ({children}) =>
     {children}
     <style jsx>{`
       .root {
-        max-width: 720px;
+        max-width: 800px;
         margin: 0 auto;
         padding: 1rem;
       }

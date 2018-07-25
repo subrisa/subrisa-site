@@ -6,17 +6,17 @@ import ProductTeaser from './ProductTeaser';
 
 const ProductList = ({products, loading, handleAddToCartClick}) => 
   products ? 
-    <WidthLimiter>
-      <div className='root'>
-        {products.map(product => <ProductTeaser {...product} />)}
-      </div>
+    <div className='root'>
+      {products.map(product => <ProductTeaser {...product} />)}
       <style jsx>{`
         @media only screen and (min-width: 600px) {
           .root {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            grid-column-gap: 1em;
-            grid-row-gap: 2em;
+            grid-column-gap: 1.333em;
+            grid-row-gap: 3em;
+            margin-bottom: 3em;
+            padding: 0;
           }
         }
         @media only screen and (min-width: 760px) {
@@ -25,7 +25,7 @@ const ProductList = ({products, loading, handleAddToCartClick}) =>
           }
         }
       `}</style>
-    </WidthLimiter>:
+    </div> :
     <div>Cargando...</div>
 
 export default compose(

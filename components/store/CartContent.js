@@ -9,13 +9,13 @@ const CartContent = ({checkout}) =>
           {checkout && checkout.lineItems.edges.map(item =>
             <div>
               <div>{item.node.quantity}x</div>
-              <div>{item.node.title}</div>
-              <div>${item.node.variant.price}</div>
+              <div className='title'>{item.node.title}</div>
+              <div>${item.node.variant.price*item.node.quantity}</div>
             </div>
           )}
         </div>
         <div className='prices'>
-          <div><span>Subtotal:</span><span><b>${checkout.totalPrice}</b></span></div>
+          <div><span>Subtotal:</span><span>${checkout.totalPrice}</span></div>
         </div>
         <form><button href={checkout.webUrl}>Comprar</button></form>
       </>
@@ -23,7 +23,7 @@ const CartContent = ({checkout}) =>
     <style jsx>{`
       .items > div {
         font-size: 0.75rem;
-        margin: 0.2rem;
+        margin: 0.5rem 0;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -31,6 +31,9 @@ const CartContent = ({checkout}) =>
       .items > div > div:first-child {
         width: 2.2em;
         padding-right: 5px;
+      }
+      .title {
+        
       }
       .items > div > div:last-child {
         width: 40px;
@@ -43,6 +46,9 @@ const CartContent = ({checkout}) =>
       .prices > div {
         display: flex;
         justify-content: space-between;
+      }
+      .prices > div > span:last-child {
+        font-weight: 700;
       }
     `}</style>
   </div>
