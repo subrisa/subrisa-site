@@ -2,18 +2,20 @@ import { compose, lifecycle, withState } from 'recompose';
 import WidthLimiter from '../struct/WidthLimiter'
 import withCheckoutCreate from './withCheckoutCreate';
 import CartContent from './CartContent';
+import { CartIcon } from '../base/Icons';
 
 const Cart = ({ checkoutId }) => 
-  <WidthLimiter>
-    <div className='root'>
-      {checkoutId && <CartContent checkoutId={checkoutId}/>}
-    </div>
+  <div className='root'>
+    <h3><CartIcon /></h3>
+    {checkoutId && <CartContent checkoutId={checkoutId}/>}
     <style jsx>{`
-      .root {
-        display: block;
+      h3 {
+        width: 65px;
+        margin: 3em auto 1.5em;
+        fill: #85ABA9;
       }
     `}</style>
-  </WidthLimiter>
+  </div>
 
 export default compose(
   withState('checkoutId', 'setCheckoutId', false),

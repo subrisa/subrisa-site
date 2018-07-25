@@ -8,6 +8,7 @@ import MessengerChat from 'components/home/MessengerChat'
 import Title from 'components/base/Title'
 import ProductList from 'components/store/ProductList';
 import Cart from 'components/store/Cart'
+import Sidebar from '../components/struct/Sidebar';
 
 const Store = (props) =>
   <Body>
@@ -16,8 +17,10 @@ const Store = (props) =>
     <Main>
       <br /><br /><br />
       <h2><Title text='Tienda' color='#85ABA9' /></h2>
-      <ProductList />
-      <Cart />
+      <Sidebar>
+        <ProductList />
+        <Cart />
+      </Sidebar>
     </Main>
     <Footer />
   </Body>

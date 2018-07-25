@@ -29,7 +29,7 @@ export default graphql(checkout, {
     }
   },
 
-  props: ({ data }) => {
-    return {checkout: data.node}
+  props: ({ data: { node } }) => {
+    return {checkout: node}
   }
 })

@@ -1,11 +1,12 @@
 import React from 'react'
 import { handleAnchorClick } from 'lib/animatedScroll'
+import Link from 'next/link'
 
 const MainMenu = () =>
   <nav>
     <a href='/#about' onClick={ handleAnchorClick }>Nosotros</a>
     <a href='/#products' onClick={ handleAnchorClick }>Productos</a>
-    <a href='store' onClick={ handleAnchorClick }>Tienda</a>
+    <Link href='/store'><a>Tienda</a></Link>
     <a href='/#contact' onClick={ handleAnchorClick }>Contacto</a>
     <style jsx>{`
       nav {

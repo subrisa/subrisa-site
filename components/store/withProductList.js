@@ -31,5 +31,34 @@ const productList = gql`
   }
 }
 `
+const normalizeImage = ({ node: { src } }) => ({ src })
 
-export default graphql(productList, { alias: 'withProductList' })
+const normalizeProduct = ({
+  node: {
+     images,
+     variants,
+     ...node
+  }
+}) => ({
+  ...node,
+  price: variants.edges[0].node.price,
+  variants: variants.edges,
+  images: images.edges.map(normalizeImage)
+})
+
+const normalizeProps = ({
+  data: {
+    loading,
+    shop: { products }
+  }
+}) =>
+({
+  loading,
+  products: products.edges.map(normalizeProduct)
+})
+
+export default graphql(productList, {
+  alias: 'withProductList',
+
+  props: props => props.data.shop ? normalizeProps(props) : props
+})

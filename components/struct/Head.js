@@ -7,7 +7,7 @@ const CustomHead = ({ title }) =>
   <div>
     <Head>
       <title>{'BRISA'}</title>
-      <link href="https://fonts.googleapis.com/css?family=Lato:300,400,500,600" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,900" rel="stylesheet" />
       <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://subrisa.com/static/favicons/apple-touch-icon-144x144.png" />
       <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://subrisa.com/static/favicons/apple-touch-icon-152x152.png" />
       <link rel="icon" type="image/png" href="https://subrisa.com/static/favicons/favicon-32x32.png" sizes="32x32" />
@@ -29,6 +29,7 @@ const CustomHead = ({ title }) =>
         margin: 0;
         font-family: 'Lato', sans-serif;
         overflow-x: hidden;
+        font-size: 12pt;
       }
       img {
         max-width: 100%;
@@ -54,8 +55,8 @@ const CustomHead = ({ title }) =>
       form input,
       form button,
       form textarea {
-        font-size: 20px;
         box-sizing: border-box;
+        font-size: inherit;
         border: 0;
         border-radius: 16px;
         font-weight: 300;
@@ -66,7 +67,7 @@ const CustomHead = ({ title }) =>
       }
       form .error,
       form .error::placeholder {
-        color: red
+        color: red;
       }
       form button {
         color: white;
