@@ -4,10 +4,10 @@ import Link from 'next/link'
 
 const MainMenu = () =>
   <nav>
-    <a href='/#about' onClick={ handleAnchorClick }>Nosotros</a>
-    <a href='/#products' onClick={ handleAnchorClick }>Productos</a>
+    <Link href='/#about' ><a onClick={ handleAnchorClick }>Nosotros</a></Link>
+    <Link href='/#products'><a onClick={ handleAnchorClick }>Productos</a></Link>
     <Link href='/store'><a>Tienda</a></Link>
-    <a href='/#contact' onClick={ handleAnchorClick }>Contacto</a>
+    <Link href='/#contact'><a onClick={ handleAnchorClick }>Contacto</a></Link>
     <style jsx>{`
       nav {
         text-transform: uppercase;

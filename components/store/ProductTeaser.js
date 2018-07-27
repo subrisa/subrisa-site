@@ -16,7 +16,9 @@ const ProductList = ({title, price, images, handleAddToCartClick, ...product}) =
       }
       .image {
         position: relative;
-        padding-bottom: 100%;
+        padding-bottom: 90%;
+        width: 90%;
+        margin: 0 auto;
       }
       .image > img {
         position: absolute;

@@ -20,13 +20,13 @@ const About = ({cover, title, subtitle}) =>
         left: 20px;
         right: 20px;
         color: white;
-        transition: 1s opacity 1.4s;
+        transition: 1s opacity 1.5s;
       }
       p {
         max-width: 600px;
         text-align: center;
         margin-left: auto; margin-right: auto;
-        font-size: 20px;
+        font-size: 1.333em;
         font-weight: 300;
       }
     `}</style>

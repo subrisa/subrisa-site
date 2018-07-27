@@ -15,6 +15,7 @@ const CustomHead = ({ title }) =>
       <meta name="application-name" content="Brisa"/>
       <meta name="msapplication-TileColor" content="#FFFFFF" />
       <meta name="msapplication-TileImage" content="https://subrisa.com/static/favicons/mstile-144x144.png" />   
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable='no' />
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116955640-1"></script>
       <script dangerouslySetInnerHTML={{__html: `
         window.dataLayer = window.dataLayer || [];

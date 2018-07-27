@@ -15,7 +15,9 @@ const CartContent = ({checkout}) =>
           )}
         </div>
         <div className='prices'>
-          <div><span>Subtotal:</span><span>${checkout.totalPrice}</span></div>
+          <div><span>Entrega:</span><span>Gratis</span></div>
+          <div><span>Total:</span><span>${checkout.totalPrice}</span></div>
+          <small>IVA incluido.</small>
         </div>
         <form><button href={checkout.webUrl}>Comprar</button></form>
       </>
@@ -44,13 +46,20 @@ const CartContent = ({checkout}) =>
         margin: 1em  0 0.5em 0;
       }
       .prices > div {
-        display: flex;
-        justify-content: space-between;
+        text-align: right;
         font-weight: 300;
       }
       .prices > div > span:last-child {
         font-weight: 700;
         text-align: right;
+        width: 40%;
+        display: inline-block
+      }
+      .prices small {
+        font-size: 0.75em;
+        font-weight: 300;
+        text-align: right;
+        display: block;
       }
     `}</style>
   </div>

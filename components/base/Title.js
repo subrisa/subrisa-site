@@ -8,7 +8,7 @@ const Title = ({ text, color }) =>
       .wrapper {
         text-transform: uppercase;
         text-align: center;
-        font-size: 28px;
+        font-size: 2.333rem;
         position: relative;
         display: block;
         font-weight: 300;
