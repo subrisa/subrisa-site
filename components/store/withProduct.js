@@ -2,29 +2,25 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
 const productList = gql`
-{
+query productQuery() {
   shop {
-    collectionByHandle(handle: "frontpage") {
-      products(first: 20) {
-        edges {
-          node {
-            id
-            title
-            handle
-            images(first: 1, maxWidth: 600) {
-              edges {
-                node {
-                  src
-                }
-              }
+    productByHandle(handle: "frontpage") {
+      node {
+        id
+        title
+        handle
+        images(first: 1, maxWidth: 600) {
+          edges {
+            node {
+              src
             }
-            variants(first: 1) {
-              edges {
-                node {
-                  id
-                  price
-                }
-              }
+          }
+        }
+        variants(first: 1) {
+          edges {
+            node {
+              id
+              price
             }
           }
         }
