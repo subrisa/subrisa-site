@@ -64,5 +64,7 @@ export default graphql(product, {
     }
   },
 
-  props: ({data: {shop: { productByHandle }}}) => ({product: productByHandle})
+  //props: ({data: {shop: { productByHandle }}}) => ({product: productByHandle})
+  props: ({data}) => ({product: data.shop ? data.shop.productByHandle : {}})
+
 })

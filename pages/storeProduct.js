@@ -20,7 +20,7 @@ const StoreProduct = ({product}) =>
       <h2><Title text={product.title} color='#85ABA9' /></h2>
       <Sidebar>
         <div>
-          <div className='image'><img src={product.images.edges[0].node.src} /></div>
+          <div className='image'><img src={product.images && product.images.edges[0].node.src} /></div>
         </div>
         <Cart />
       </Sidebar>

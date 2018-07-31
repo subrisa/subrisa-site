@@ -33,13 +33,14 @@ const ProductList = ({title, price, images, handle, handleAddToCartClick, ...pro
         margin: 0 0 0.333em;
         font-weight: 300;
         min-height: 2.5em;
+        color: rgb(132, 120, 148);
       }
       .price {
         font-weight: 700;
         font-size: 1.333em;
         
       }
-      a {
+      .root > a {
         position: absolute;
         right: 5px;
         bottom: -5px;
@@ -62,7 +63,7 @@ const ProductList = ({title, price, images, handle, handleAddToCartClick, ...pro
         transform: translateY(1px)
       }
       @media only screen and (min-width: 600px) {
-        a:hover {
+        .root > a:hover {
           background: rgb(132, 120, 148);
           color: white;
           fill: white;

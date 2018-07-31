@@ -32,7 +32,7 @@ export default compose(
   lifecycle({
     async componentDidMount() {
       const localStorageCheckoutId = localStorage.getItem('checkoutId')
-      //if (localStorageCheckoutId) return this.props.setCheckoutId(localStorageCheckoutId)
+      if (localStorageCheckoutId) return this.props.setCheckoutId(localStorageCheckoutId)
       const mutationResponse = await this.props.checkoutCreate({
         variables: { 
           input: {
