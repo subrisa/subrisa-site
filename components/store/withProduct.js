@@ -1,27 +1,25 @@
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
-const productList = gql`
-query productQuery() {
+const product = gql`
+query productQuery($handle: String!) {
   shop {
-    productByHandle(handle: "frontpage") {
-      node {
-        id
-        title
-        handle
-        images(first: 1, maxWidth: 600) {
-          edges {
-            node {
-              src
-            }
+    productByHandle(handle: $handle) {
+      id
+      title
+      handle
+      images(first: 1, maxWidth: 600) {
+        edges {
+          node {
+            src
           }
         }
-        variants(first: 1) {
-          edges {
-            node {
-              id
-              price
-            }
+      }
+      variants(first: 1) {
+        edges {
+          node {
+            id
+            price
           }
         }
       }
@@ -55,8 +53,16 @@ const normalizeProps = ({
   products: products.edges.map(normalizeProduct)
 })
 
-export default graphql(productList, {
-  alias: 'withProductList',
+export default graphql(product, {
+  alias: 'withProduct',
 
-  props: props => props.data.shop ? normalizeProps(props) : props
+  options(props) {
+    return {
+      variables: {
+        handle: props.url.query.slug
+      }
+    }
+  },
+
+  props: ({data: {shop: { productByHandle }}}) => ({product: productByHandle})
 })

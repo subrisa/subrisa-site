@@ -1,12 +1,15 @@
 import { compose, withHandlers } from 'recompose';
 import withCheckoutLineItemsAdd from './withCheckoutLineItemsAdd'
 import { CartIcon } from '../base/Icons';
+import { Link } from '/routes'
 
-const ProductList = ({title, price, images, handleAddToCartClick, ...product}) => 
+const ProductList = ({title, price, images, handle, handleAddToCartClick, ...product}) => 
   <div className='root'>
     <div className='image'><img src={images[0].src} /></div>
     <div className='description'>
-      <h2>{title}</h2>
+      <Link route={`/tienda/producto/${handle}`}><a>
+        <h2>{title}</h2>
+      </a></Link>
       <div className='price'>${price}</div>
     </div>
     <a onClick={handleAddToCartClick}>+<span><CartIcon /></span></a>

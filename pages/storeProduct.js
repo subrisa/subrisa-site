@@ -9,20 +9,23 @@ import Title from 'components/base/Title'
 import ProductList from 'components/store/ProductList';
 import Cart from 'components/store/Cart'
 import Sidebar from '../components/struct/Sidebar';
+import withProduct from '/components/store/withProduct'
 
-const Store = (props) =>
+const StoreProduct = ({product}) =>
   <Body>
     <Head />
     <Masthead showSmall />
     <Main>
       <br /><br /><br />
-      <h2><Title text='Tienda' color='#85ABA9' /></h2>
+      <h2><Title text={product.title} color='#85ABA9' /></h2>
       <Sidebar>
-        <div>{JSON.stringify(props.url)}</div>
+        <div>
+          <div className='image'><img src={product.images.edges[0].node.src} /></div>
+        </div>
         <Cart />
       </Sidebar>
     </Main>
     <Footer />
   </Body>
 
-export default withData(Store)
+export default withData(withProduct(StoreProduct))

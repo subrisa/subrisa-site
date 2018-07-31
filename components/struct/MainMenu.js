@@ -4,10 +4,10 @@ import { Link } from '/routes'
 
 const MainMenu = () =>
   <nav>
-    <Link href='/#about' ><a onClick={ handleAnchorClick }>Nosotros</a></Link>
-    <Link href='/#products'><a onClick={ handleAnchorClick }>Productos</a></Link>
-    <Link href='/tienda'><a>Tienda</a></Link>
-    <Link href='/#contact'><a onClick={ handleAnchorClick }>Contacto</a></Link>
+    <Link route='/#about' ><a onClick={ handleAnchorClick }>Nosotros</a></Link>
+    <Link route='/#products'><a onClick={ handleAnchorClick }>Productos</a></Link>
+    <Link route='/tienda'><a>Tienda</a></Link>
+    <Link route='/#contact'><a onClick={ handleAnchorClick }>Contacto</a></Link>
     <style jsx>{`
       nav {
         text-transform: uppercase;
