@@ -1,5 +1,4 @@
 import { compose, lifecycle, withState } from 'recompose';
-import WidthLimiter from '../struct/WidthLimiter'
 import withCheckoutCreate from './withCheckoutCreate';
 import CartContent from './CartContent';
 import { CartIcon } from '../base/Icons';
@@ -7,7 +6,8 @@ import { CartIcon } from '../base/Icons';
 const Cart = ({ checkoutId }) => 
   <div className='root'>
     <h3><span><CartIcon /></span>CARRO</h3>
-    {checkoutId && <CartContent checkoutId={checkoutId}/>}
+    {checkoutId &&
+      <CartContent checkoutId={checkoutId}/>}
     <style jsx>{`
       h3 {
         margin: 2em 0 .75em 0;
@@ -32,7 +32,7 @@ export default compose(
   lifecycle({
     async componentDidMount() {
       const localStorageCheckoutId = localStorage.getItem('checkoutId')
-      if (localStorageCheckoutId) return this.props.setCheckoutId(localStorageCheckoutId)
+      //if (localStorageCheckoutId) return this.props.setCheckoutId(localStorageCheckoutId)
       const mutationResponse = await this.props.checkoutCreate({
         variables: { 
           input: {

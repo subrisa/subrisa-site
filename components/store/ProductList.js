@@ -16,7 +16,7 @@ const ProductList = ({products, loading, handleAddToCartClick}) =>
             grid-column-gap: 1.333em;
             grid-row-gap: 3em;
             margin-bottom: 3em;
-            padding: 0;
+            width: 100%;
           }
         }
         @media only screen and (min-width: 760px) {

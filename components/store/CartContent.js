@@ -1,47 +1,33 @@
-import { compose } from 'recompose';
+import { compose, withHandlers } from 'recompose';
 import withCheckout from './withCheckout';
+import withCheckoutCreate from './withCheckoutCreate';
+import CartItem from './CartItem';
+import withCheckoutLineItemsRemove from './withCheckoutLineItemsRemove';
 
-const CartContent = ({checkout}) => 
+const CartContent = ({checkoutId, checkout, handleSubmitClick, checkoutLineItemsRemove}) => 
   <div>
     { checkout &&
       <>
         <div className='items'>
           {checkout && checkout.lineItems.edges.map(item =>
-            <div>
-              <div>{item.node.quantity}x</div>
-              <div className='title'>{item.node.title}</div>
-              <div>${item.node.variant.price*item.node.quantity}</div>
-            </div>
+            <CartItem
+              item={item}
+              key={item.node.id}
+              onRemoveClick={checkoutLineItemsRemove}
+            />
           )}
         </div>
         <div className='prices'>
           <div><span>Entrega:</span><span>Gratis</span></div>
           <div><span>Total:</span><span>${checkout.totalPrice}</span></div>
-          <small>IVA incluido.</small>
+          <small>IVA incluido</small>
         </div>
-        <form><button href={checkout.webUrl}>Comprar</button></form>
+        <form>
+          <button type="button" onClick={handleSubmitClick}>Comprar</button>
+        </form>
       </>
     }
     <style jsx>{`
-      .items > div {
-        font-size: 0.75rem;
-        margin: 0.5rem 0;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .items > div > div:first-child {
-        width: 2.5em;
-        padding-right: 7px;
-      }
-      .title {
-        font-weight: 300;
-      }
-      .items > div > div:last-child {
-        width: 50px;
-        padding-left: 10px;
-        text-align: right;
-      }
       .prices {
         margin: 1em  0 0.5em 0;
       }
@@ -60,10 +46,17 @@ const CartContent = ({checkout}) =>
         font-weight: 300;
         text-align: right;
         display: block;
+        color: #9d9e9f;
       }
     `}</style>
   </div>
 
 export default compose(
-  withCheckout
+  withCheckout,
+  withCheckoutCreate,
+  withHandlers({
+    handleSubmitClick: props => e => {
+      window.location.replace(props.checkout.webUrl)
+    }
+  })
 )(CartContent)

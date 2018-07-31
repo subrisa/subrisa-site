@@ -33,6 +33,7 @@ const CustomHead = ({ title }) =>
         font-size: 12pt;
         color: #131516;
         fill: #131516;
+        line-height: 1.333;
       }
       img {
         max-width: 100%;

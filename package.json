@@ -28,6 +28,7 @@
     "mailgun-js": "^0.20.0",
     "next": "^6.1.0",
     "next-apollo": "^2.0.0",
+    "next-routes": "^1.4.2",
     "nprogress": "^0.2.0",
     "prismic-javascript": "^1.5.0-beta.3",
     "prismic-reactjs": "^0.3.1",
