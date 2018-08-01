@@ -4,8 +4,12 @@ import { CartIcon } from '../base/Icons';
 import { Link } from '/routes'
 
 const ProductList = ({title, price, images, handle, handleAddToCartClick, ...product}) => 
-  <div className='root'>
-    <div className='image'><img src={images[0].src} /></div>
+  <div className='root'> 
+    <div className='image'>
+      <Link route={`/tienda/producto/${handle}`}><a>
+        <img src={images[0].src} />
+      </a></Link>
+    </div>
     <div className='description'>
       <Link route={`/tienda/producto/${handle}`}><a>
         <h2>{title}</h2>
@@ -23,7 +27,7 @@ const ProductList = ({title, price, images, handle, handleAddToCartClick, ...pro
         width: 90%;
         margin: 0 auto;
       }
-      .image > img {
+      .image img {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -38,12 +42,11 @@ const ProductList = ({title, price, images, handle, handleAddToCartClick, ...pro
       .price {
         font-weight: 700;
         font-size: 1.333em;
-        
       }
       .root > a {
         position: absolute;
         right: 5px;
-        bottom: -5px;
+        bottom: -3px;
         margin-top: 100%;
         background: ;
         padding: 0.2em 0.3em;
@@ -55,7 +58,7 @@ const ProductList = ({title, price, images, handle, handleAddToCartClick, ...pro
         fill: rgb(132, 120, 148);
         font-weight: 300;
       }
-      a span {
+      .root > a span {
         width: 0.85em;
         height: 1em;
         padding: 0 0.1em;
@@ -85,7 +88,7 @@ const ProductList = ({title, price, images, handle, handleAddToCartClick, ...pro
           margin-right: 3em;
           flex: 1;
         }
-        a {
+        .root > a {
           right: -5px;
           bottom: 50%;
           transform: translateY(50%)

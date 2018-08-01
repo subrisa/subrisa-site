@@ -9,16 +9,16 @@ const CartItem = ({item, handleRemoveClick}) =>
     <style jsx>{`
       .root {
         font-size: 0.75rem;
-        margin: 0.5rem 0;
+        margin-bottom: 0.5rem;
         display: flex;
         align-items: center;
-        justify-content: space-between;
       }
       .title {
         font-weight: 300;
+        flex: 1;
       }
       div > div:first-child {
-        width: 2.5em;
+        width: 2em;
         padding-right: 7px;
       }
       div > div:last-child {

@@ -1,14 +1,14 @@
 const WidthLimiter = ({children}) =>
-  <div className='root'>
+  <div className='width-limiter'>
     {children}
     <style jsx>{`
-      .root {
+      .width-limiter {
         max-width: 800px;
         margin: 0 auto;
-        padding: 1rem;
+        padding: .5rem 1rem;
       }
       @media only screen and (min-width: 1200px) {
-        .root {
+        .width-limiter {
           max-width: 920px;
         }
       }

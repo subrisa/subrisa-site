@@ -23,14 +23,11 @@ const CartContent = ({checkoutId, checkout, handleSubmitClick, checkoutLineItems
           <small>IVA incluido</small>
         </div>
         <form>
-          <button type="button" onClick={handleSubmitClick}>Comprar</button>
+          <button type="button" onClick={handleSubmitClick}>Continuar</button>
         </form>
       </>
     }
     <style jsx>{`
-      .prices {
-        margin: 1em  0 0.5em 0;
-      }
       .prices > div {
         text-align: right;
         font-weight: 300;

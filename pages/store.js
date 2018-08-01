@@ -9,18 +9,19 @@ import Title from 'components/base/Title'
 import ProductList from 'components/store/ProductList';
 import Cart from 'components/store/Cart'
 import Sidebar from '../components/struct/Sidebar';
+import WidthLimiter from '../components/struct/WidthLimiter';
 
 const Store = (props) =>
   <Body>
     <Head />
     <Masthead showSmall />
     <Main>
-      <br /><br /><br />
+      <br /><br /><br /><br /><br />
       <h2><Title text='Tienda' color='#85ABA9' /></h2>
-      <Sidebar>
+      <WidthLimiter>
         <ProductList />
         <Cart />
-      </Sidebar>
+      </WidthLimiter>
     </Main>
     <Footer />
   </Body>

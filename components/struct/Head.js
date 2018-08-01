@@ -79,7 +79,7 @@ const CustomHead = ({ title }) =>
         background: #85ABA9;
         font-weight: 300;
         text-transform: uppercase;
-        margin-top: 1em;
+        margin-top: .5rem;
       }
       form button:disabled {
         opacity: 0.7;
