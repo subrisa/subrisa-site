@@ -8,6 +8,7 @@ import Title from 'components/base/Title'
 import Cart from 'components/store/Cart'
 import withProduct from '/components/store/withProduct'
 import WidthLimiter from '../components/struct/WidthLimiter';
+import ProductDetail from '../components/store/ProductDetail';
 
 const StoreProduct = ({product}) =>
   <Body>
@@ -15,9 +16,8 @@ const StoreProduct = ({product}) =>
     <Masthead showSmall />
     <Main>
       <br /><br /><br /><br /><br />
-      <h2><Title text={product.title} color='#85ABA9' /></h2>
       <WidthLimiter>
-        <div className='image'><img src={product.images && product.images.edges[0].node.src} /></div>
+        <ProductDetail {...product} />
       </WidthLimiter>
       <Cart />
     </Main>

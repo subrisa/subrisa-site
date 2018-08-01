@@ -8,6 +8,7 @@ query productQuery($handle: String!) {
       id
       title
       handle
+      descriptionHtml
       images(first: 1, maxWidth: 600) {
         edges {
           node {
