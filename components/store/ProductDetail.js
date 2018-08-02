@@ -1,13 +1,15 @@
 import { compose, withHandlers } from 'recompose';
 import withCheckoutLineItemsAdd from './withCheckoutLineItemsAdd'
 import withCheckoutId from './withCheckoutId';
+import Price from './Price';
 
-const ProductDetail = ({title, price, images, descriptionHtml, handleAddToCartClick, ...product}) => 
+const ProductDetail = ({title, images, descriptionHtml, handleAddToCartClick, variants, ...product}) => 
   <div className='product-detail'>
     <div className='content'>
       <div className='image'><img src={images && images.edges[0].node.src} /></div>
       <div>
         <h1>{title}</h1>
+        <h2><Price value={variants.edges[0].node.price} /></h2>
         <form>
           <button type="button" onClick={handleAddToCartClick}>Anadir ao carro</button>
         </form>
@@ -31,6 +33,13 @@ const ProductDetail = ({title, price, images, descriptionHtml, handleAddToCartCl
       h1 {
         font-size: 1.75rem;
         font-weight: 300;
+        margin-bottom: 0;
+      }
+      h2 {
+        font-weight: 700;
+        font-size: 1.75rem;
+        color: #A291BA;
+        margin-top: 0;
       }
     `}</style>
   </div>

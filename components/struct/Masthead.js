@@ -65,7 +65,7 @@ const Header = ({ scrollTop, showSmall }) =>
         transition: 1s all .2s;
       }
       .masthead.small {
-        background: rgba(0, 0, 0, 0.8);
+        background: rgba(5, 9, 18, 0.8);
         transition: .9s background-color .2s;
         backdrop-filter: blur(5px);
       }

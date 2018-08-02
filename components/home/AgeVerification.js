@@ -4,7 +4,7 @@ import { LogoIconSpinning } from '../base/Icons'
 
 const AgeVerification = ({children, locked, setLocked, loading}) =>
   <div>
-    {locked && <div className='spinner'>
+    {locked && loading && <div className='spinner'>
       <LogoIconSpinning />
     </div>}
     <div className={`root ${locked && 'locked'} ${loading && 'loading'}`}>

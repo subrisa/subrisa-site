@@ -3,7 +3,7 @@ import withCheckoutLineItemsAdd from './withCheckoutLineItemsAdd'
 import { CartIcon } from '../base/Icons';
 import { Link } from '/routes'
 import withCheckoutId from './withCheckoutId';
-
+import Price from './Price'
 const ProductList = ({title, price, images, handle, handleAddToCartClick, checkoutId}) => 
   <div className='root'> 
     <div className='image'>
@@ -15,7 +15,7 @@ const ProductList = ({title, price, images, handle, handleAddToCartClick, checko
       <Link route={`/tienda/producto/${handle}`}><a>
         <h2>{title}</h2>
       </a></Link>
-      <div className='price'>${price}</div>
+      <div className='price'><Price value={price} /></div>
     </div>
     {checkoutId && <button type='button' onClick={handleAddToCartClick}>
       +<span><CartIcon /></span>

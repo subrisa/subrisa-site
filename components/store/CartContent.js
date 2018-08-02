@@ -3,6 +3,7 @@ import withCheckout from './withCheckout';
 import withCheckoutCreate from './withCheckoutCreate';
 import CartItem from './CartItem';
 import withCheckoutLineItemsRemove from './withCheckoutLineItemsRemove';
+import Price from './Price';
 
 const CartContent = ({checkoutId, checkout, handleSubmitClick, checkoutLineItemsRemove}) =>
   <div>
@@ -21,12 +22,12 @@ const CartContent = ({checkoutId, checkout, handleSubmitClick, checkoutLineItems
           )}
         </div>
         <div className='prices'>
-          <div><span>Entrega:</span><span>Gratis</span></div>
-          <div><span>Total:</span><span>${checkout.totalPrice}</span></div>
+          <div><span>Entrega:</span><span>Por Pagar</span></div>
+          <div><span>Total:</span><span><Price value={checkout.totalPrice} /></span></div>
           <small>IVA incluido</small>
         </div>
         <form>
-          <button type="button" onClick={handleSubmitClick}>Continuar</button>
+          <button type="button" onClick={handleSubmitClick}>Continuar →</button>
         </form>
       </>
     }
