@@ -89,7 +89,8 @@ const CustomHead = ({ title }) =>
       form button {
         color: white;
         padding: 6px 12px;
-        background: #7FB8B5;
+        background-color: #7FB8B5;
+        background-image: radial-gradient(at top left,#7FB8B5,#A291BA);
         font-weight: 300;
         text-transform: uppercase;
         margin-top: .5rem;

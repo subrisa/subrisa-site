@@ -9,7 +9,7 @@ const ProductDetail = ({title, images, descriptionHtml, handleAddToCartClick, va
       <div className='image'><img src={images && images.edges[0].node.src} /></div>
       <div>
         <h1>{title}</h1>
-        <h2><Price value={variants.edges[0].node.price} /></h2>
+        <h2><Price value={variants && variants.edges[0].node.price} /></h2>
         <form>
           <button type="button" onClick={handleAddToCartClick}>Anadir ao carro</button>
         </form>
@@ -17,18 +17,20 @@ const ProductDetail = ({title, images, descriptionHtml, handleAddToCartClick, va
       </div>
     </div>
     <style jsx>{`
-      .content {
-        display: flex;
-        margin-bottom: 2rem;
-      }
-      .content > div {
-        flex: 1;
-      }
-      .content > div:first-child {
-        margin-right: 1rem;
-      }
-      .content > div:last-child {
-        margin-left: 1rem;
+      @media screen and (min-width: 600px) {
+        .content {
+          display: flex;
+          margin-bottom: 2rem;
+        }
+        .content > div {
+          flex: 1;
+        }
+        .content > div:first-child {
+          margin-right: 1rem;
+        }
+        .content > div:last-child {
+          margin-left: 1rem;
+        }
       }
       h1 {
         font-size: 1.75rem;
@@ -40,6 +42,9 @@ const ProductDetail = ({title, images, descriptionHtml, handleAddToCartClick, va
         font-size: 1.75rem;
         color: #A291BA;
         margin-top: 0;
+      }
+      button {
+        background-image: none;
       }
     `}</style>
   </div>

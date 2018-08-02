@@ -8,8 +8,9 @@ const CartItem = ({item, handleRemoveClick}) =>
     <div className='actions'>
       <a onClick={handleRemoveClick}>X</a>
     </div>
-    <div className='qty'>{item.node.quantity}x</div>
-    <div className='title'>{item.node.title}</div>
+    <div className='title'>
+      <span className='qty'>{item.node.quantity}x</span>{item.node.title}
+    </div>
     <div><Price value={item.node.variant && item.node.variant.price*item.node.quantity} /></div>
     <style jsx>{`
       .root {
@@ -17,9 +18,6 @@ const CartItem = ({item, handleRemoveClick}) =>
         margin-bottom: 0.5rem;
         display: flex;
         align-items: center;
-      }
-      .actions {
-        width: 1em;
       }
       .actions a {
         background: #a2a7b2;
@@ -35,13 +33,13 @@ const CartItem = ({item, handleRemoveClick}) =>
         font-weight: bold;
       }
       .qty {
-        width: 2.2em;
-        text-align: right;
-        margin: 0 .2em;
+        font-weight: 600;
+        margin-right: 0.333em;
       }
       .title {
         font-weight: 300;
         flex: 1;
+        margin-left: .75em
       }
       div > div:last-child {
         width: 50px;

@@ -54,14 +54,24 @@ const Cart = ({ checkoutId, persistLoaded, checkout, isOpen, setOpen }) =>
           transition: .5s margin ease-out, .6s opacity .6s ease-out;
         }
       }
-      .cart .head,
-      .cart .content {
+
+      @media screen and (min-width: 600px) {
+        .content {
+          display: flex;
+          justify-content: space-between;
+        }
+        .content > div:last-child {
+          max-width: 280px;
+        }
+      }
+      .head {
         display: flex;
         justify-content: space-between;
       }
-      .cart .content {
+      .content {
         padding-bottom: 10px;
       }
+
       h3 {
         margin: 0;
         font-size: 1rem;

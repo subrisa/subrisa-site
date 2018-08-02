@@ -39,7 +39,7 @@ const CartContent = ({checkoutId, checkout, handleSubmitClick, checkoutLineItems
       .prices > div > span:last-child {
         font-weight: 700;
         text-align: right;
-        width: 40%;
+        width: 6em;
         display: inline-block
       }
       .prices small {
@@ -48,6 +48,14 @@ const CartContent = ({checkoutId, checkout, handleSubmitClick, checkoutLineItems
         text-align: right;
         display: block;
         color: #9d9e9f;
+      }
+      form {
+        text-align: right;
+      }
+      button {
+        width: auto;
+        padding-left: 2em;
+        padding-right: 2em;
       }
     `}</style>
   </div>

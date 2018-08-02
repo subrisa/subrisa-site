@@ -18,7 +18,7 @@ const ProductList = ({title, price, images, handle, handleAddToCartClick, checko
       <div className='price'><Price value={price} /></div>
     </div>
     {checkoutId && <button type='button' onClick={handleAddToCartClick}>
-      +<span><CartIcon /></span>
+      <span>+</span><span><CartIcon /></span>
     </button>}
     <style jsx>{`
       .root {
@@ -56,17 +56,21 @@ const ProductList = ({title, price, images, handle, handleAddToCartClick, checko
         padding: 0.2em 0.3em;
         text-align: center;
         border-radius: 1.5rem;
-        line-height: 1.rem;
-        font-size: 1.5rem;
+        line-height: 1.5rem;
+        font-size: 1.333rem;
         color: #A291BA;
         fill: #A291BA;
         font-weight: 300;
       }
-      .root > button span {
-        width: 0.9em;
-        padding: 0 0.1em;
+      .root > button span:first-child {
+        transform: translateY(-2px);
         display: inline-block;
-        transform: translateY(1px)
+      }
+      .root > button span:last-child {
+        width: 1.333rem;
+        margin: 0 0.1em;
+        display: inline-block;
+        transform: translateY(2px)
       }
       @media only screen and (min-width: 600px) {
         .root > button:hover {
