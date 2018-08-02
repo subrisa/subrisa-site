@@ -67,6 +67,7 @@ const Header = ({ scrollTop, showSmall }) =>
       .masthead.small {
         background: rgba(0, 0, 0, 0.8);
         transition: .9s background-color .2s;
+        backdrop-filter: blur(5px);
       }
       .masthead.small .logoWrapper {
         width: 39px;

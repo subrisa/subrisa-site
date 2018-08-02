@@ -17,7 +17,7 @@ const Store = (props) =>
     <Masthead showSmall />
     <Main>
       <br /><br /><br /><br /><br />
-      <h2><Title text='Tienda' color='#85ABA9' /></h2>
+      <h2><Title text='Tienda' color='#7FB8B5' /></h2>
       <WidthLimiter>
         <ProductList />
         <Cart />

@@ -62,6 +62,12 @@ const CustomHead = ({ title }) =>
         background: none;
         border: none;
         font-size: inherit;
+        transition: .7s filter, .3s opacity, .1s background-color;
+      }
+      button:active {
+        //filter blur(5px);
+        opacity: 0.7;
+        transition: .1s filter, .1s opacity;
       }
       form input,
       form button,
@@ -83,7 +89,7 @@ const CustomHead = ({ title }) =>
       form button {
         color: white;
         padding: 6px 12px;
-        background: #85ABA9;
+        background: #7FB8B5;
         font-weight: 300;
         text-transform: uppercase;
         margin-top: .5rem;

@@ -3,8 +3,11 @@ import withCheckoutLineItemsRemove from './withCheckoutLineItemsRemove';
 import withCheckoutId from './withCheckoutId';
 
 const CartItem = ({item, handleRemoveClick}) => 
-  <div className='root' onClick={handleRemoveClick}>
-    <div>{item.node.quantity}x</div>
+  <div className='root'>
+    <div className='actions'>
+      <a onClick={handleRemoveClick}>X</a>
+    </div>
+    <div className='qty'>{item.node.quantity}x</div>
     <div className='title'>{item.node.title}</div>
     <div>${item.node.variant && item.node.variant.price*item.node.quantity}</div>
     <style jsx>{`
@@ -14,13 +17,30 @@ const CartItem = ({item, handleRemoveClick}) =>
         display: flex;
         align-items: center;
       }
+      .actions {
+        width: 1em;
+      }
+      .actions a {
+        background: #a2a7b2;
+        color: white;
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        line-height: 1rem;
+        border-raidus: 1rem;
+        border-radius: 1rem;
+        text-align: center;
+        font-size: .5rem;
+        font-weight: bold;
+      }
+      .qty {
+        width: 2em;
+        text-align: right;
+        margin-right: .2em;
+      }
       .title {
         font-weight: 300;
         flex: 1;
-      }
-      div > div:first-child {
-        width: 2em;
-        padding-right: 7px;
       }
       div > div:last-child {
         width: 50px;

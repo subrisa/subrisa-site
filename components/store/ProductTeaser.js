@@ -4,7 +4,7 @@ import { CartIcon } from '../base/Icons';
 import { Link } from '/routes'
 import withCheckoutId from './withCheckoutId';
 
-const ProductList = ({title, price, images, handle, handleAddToCartClick, ...product}) => 
+const ProductList = ({title, price, images, handle, handleAddToCartClick, checkoutId}) => 
   <div className='root'> 
     <div className='image'>
       <Link route={`/tienda/producto/${handle}`}><a>
@@ -17,7 +17,9 @@ const ProductList = ({title, price, images, handle, handleAddToCartClick, ...pro
       </a></Link>
       <div className='price'>${price}</div>
     </div>
-    <a onClick={handleAddToCartClick}>+<span><CartIcon /></span></a>
+    {checkoutId && <button type='button' onClick={handleAddToCartClick}>
+      +<span><CartIcon /></span>
+    </button>}
     <style jsx>{`
       .root {
         position: relative;
@@ -36,39 +38,39 @@ const ProductList = ({title, price, images, handle, handleAddToCartClick, ...pro
       }
       h2 {
         margin: 0 0 0.333em;
-        font-weight: 300;
+        font-size: 1rem;
+        font-weight: 200;
         min-height: 2.5em;
-        color: rgb(132, 120, 148);
       }
       .price {
         font-weight: 700;
-        font-size: 1.333em;
+        font-size: 1.333rem;
+        color: #A291BA;
       }
-      .root > a {
+      .root > button {
         position: absolute;
-        right: 5px;
+        right: 7px;
         bottom: -3px;
         margin-top: 100%;
         background: ;
         padding: 0.2em 0.3em;
         text-align: center;
-        border-radius: 1.5em;
-        line-height: 1em;
-        font-size: 1.5em;
-        color: rgb(132, 120, 148);
-        fill: rgb(132, 120, 148);
+        border-radius: 1.5rem;
+        line-height: 1.rem;
+        font-size: 1.5rem;
+        color: #A291BA;
+        fill: #A291BA;
         font-weight: 300;
       }
-      .root > a span {
-        width: 0.85em;
-        height: 1em;
+      .root > button span {
+        width: 0.9em;
         padding: 0 0.1em;
         display: inline-block;
         transform: translateY(1px)
       }
       @media only screen and (min-width: 600px) {
-        .root > a:hover {
-          background: rgb(132, 120, 148);
+        .root > button:hover {
+          background: #A291BA;
           color: white;
           fill: white;
         }
@@ -89,8 +91,8 @@ const ProductList = ({title, price, images, handle, handleAddToCartClick, ...pro
           margin-right: 3em;
           flex: 1;
         }
-        .root > a {
-          right: -5px;
+        .root > button {
+          right: -7px;
           bottom: 50%;
           transform: translateY(50%)
         }
@@ -107,7 +109,7 @@ export default compose(
         variables: {
           checkoutId: checkoutId, 
           lineItems:  [
-            {variantId: product.variants[0].node.id, quantity: 1 }
+            { variantId: product.variants[0].node.id, quantity: 1 }
           ] 
         }
       })
