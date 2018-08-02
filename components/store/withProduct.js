@@ -60,12 +60,15 @@ export default graphql(product, {
   options(props) {
     return {
       variables: {
-        handle: props.url && props.url.query.slug
+        handle: props.router && props.router.query.slug
       }
     }
   },
 
   //props: ({data: {shop: { productByHandle }}}) => ({product: productByHandle})
-  props: ({data}) => ({product: data.shop ? data.shop.productByHandle : {}})
+  props: ({data}) => {
+    console.log('withProductresult', data)
+    return ({product: data.shop ? data.shop.productByHandle : {}})
+  }
 
 })

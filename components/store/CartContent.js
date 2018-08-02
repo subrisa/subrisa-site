@@ -4,9 +4,12 @@ import withCheckoutCreate from './withCheckoutCreate';
 import CartItem from './CartItem';
 import withCheckoutLineItemsRemove from './withCheckoutLineItemsRemove';
 
-const CartContent = ({checkoutId, checkout, handleSubmitClick, checkoutLineItemsRemove}) => 
+const CartContent = ({checkoutId, checkout, handleSubmitClick, checkoutLineItemsRemove}) =>
   <div>
-    { checkout &&
+    {checkout && checkout.lineItems.edges.length == 0 &&
+      <small>Su carrito esta vaziito</small>
+    }
+    {checkout && checkout.lineItems.edges.length > 0 &&
       <>
         <div className='items'>
           {checkout && checkout.lineItems.edges.map(item =>
@@ -24,10 +27,6 @@ const CartContent = ({checkoutId, checkout, handleSubmitClick, checkoutLineItems
         </div>
         <form>
           <button type="button" onClick={handleSubmitClick}>Continuar</button>
-          {JSON.stringify('completedAt:'+checkout.completedAt)}<br />
-          {JSON.stringify('ready:'+checkout.ready)}<br />
-          {JSON.stringify('paymentDue:'+checkout.paymentDue)}<br />
-          {JSON.stringify('order:'+checkout.order)}<br />
         </form>
       </>
     }

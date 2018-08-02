@@ -1,7 +1,6 @@
 import { compose, withHandlers } from 'recompose';
 import withCheckoutLineItemsAdd from './withCheckoutLineItemsAdd'
-import { CartIcon } from '../base/Icons';
-import { Link } from '/routes'
+import withCheckoutId from './withCheckoutId';
 
 const ProductDetail = ({title, price, images, descriptionHtml, handleAddToCartClick, ...product}) => 
   <div className='product-detail'>
@@ -9,7 +8,9 @@ const ProductDetail = ({title, price, images, descriptionHtml, handleAddToCartCl
       <div className='image'><img src={images && images.edges[0].node.src} /></div>
       <div>
         <h1>{title}</h1>
-        <form><button type="button">Anadir ao carro</button></form>
+        <form>
+          <button type="button" onClick={handleAddToCartClick}>Anadir ao carro</button>
+        </form>
         <div dangerouslySetInnerHTML={{__html: descriptionHtml}} />
       </div>
     </div>
@@ -36,13 +37,14 @@ const ProductDetail = ({title, price, images, descriptionHtml, handleAddToCartCl
 
 export default compose(
   withCheckoutLineItemsAdd,
+  withCheckoutId,
   withHandlers({
-    handleAddToCartClick: ({ checkoutLineItemsAdd, ...product }) => async e => {
+    handleAddToCartClick: ({ checkoutLineItemsAdd, checkoutId, ...product }) => async e => {
       const mutationResult = await checkoutLineItemsAdd({
         variables: {
-          checkoutId: localStorage.getItem('checkoutId'), 
+          checkoutId: checkoutId, 
           lineItems:  [
-            {variantId: product.variants[0].node.id, quantity: 1 }
+            { variantId: product.variants.edges[0].node.id, quantity: 1 }
           ] 
         }
       })

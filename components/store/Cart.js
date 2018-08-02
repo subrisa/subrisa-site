@@ -1,4 +1,4 @@
-import { compose, lifecycle, branch } from 'recompose'
+import { compose, withState, lifecycle, branch } from 'recompose'
 import withCheckoutCreate from './withCheckoutCreate'
 import { setCheckoutId } from '/store'
 import CartContent from './CartContent'
@@ -7,12 +7,14 @@ import WidthLimiter from '../struct/WidthLimiter'
 import withCheckoutId from './withCheckoutId'
 import withCheckout from './withCheckout'
 
-const Cart = ({ checkoutId, persistLoaded, checkout }) => 
-  <div className='cart'>
+const Cart = ({ checkoutId, persistLoaded, checkout, isOpen, setOpen }) => 
+  <div className={`cart ${isOpen && 'open'}`}>
     <WidthLimiter>
       <div className='head'>
         <h3>Hola, Visitante</h3>
-        <h3>{checkout && checkout.lineItems.edges.length}<span><CartIcon /></span>CARRO</h3>
+        <h3 onClick={e => isTouchDevice() && setOpen(!isOpen)}>
+          {checkout && checkout.lineItems.edges.length}<span><CartIcon /></span>
+        </h3>
       </div>
     </WidthLimiter>
     <div className='animation-wrapper'>
@@ -41,10 +43,17 @@ const Cart = ({ checkoutId, persistLoaded, checkout }) =>
         opacity: 0;
         transition: .7s margin .3s ease-in, .3s opacity;
       }
-      .cart:hover .animation-wrapper {
+      .cart.open .animation-wrapper {
         margin-top: 0;
         opacity: 1;
         transition: .7s margin ease-out, .7s opacity .6s ease-out;
+      }
+      @media (hover: hover) {
+        .cart:hover .animation-wrapper {
+          margin-top: 0;
+          opacity: 1;
+          transition: .7s margin ease-out, .7s opacity .6s ease-out;
+        }
       }
       .cart .head,
       .cart .content {
@@ -65,9 +74,10 @@ const Cart = ({ checkoutId, persistLoaded, checkout }) =>
         width: 1em;
         height: 1em;
         display: inline-block;
-        margin-right: 0.2em;
-        transform: translateY(3px)
+        margin: 0 0.2em;
+        transform: translateY(2px)
       }
+
     `}</style>
   </div>
 
@@ -78,8 +88,9 @@ export default compose(
     props => !!props.checkoutId,
     withCheckout
   ),
+  withState('isOpen', 'setOpen', false),
   lifecycle({
-    async componentDidUpdate() {
+    async componentDidUpdate(prevProps) {
       const p = this.props
       if ((!p.checkoutId && p.persistLoaded) || (p.checkout.completedAt)) {
         const mutationResponse = await this.props.checkoutCreate({
@@ -93,6 +104,24 @@ export default compose(
         const checkoutId = mutationResponse.data.checkoutCreate.checkout.id
         this.props.dispatch(setCheckoutId(checkoutId))
       }
+      if (prevProps.checkout && p.checkout && prevProps.checkout.lineItems.edges !== p.checkout.lineItems.edges) {
+        if (p.isOpen) clearTimeout(p.isOpen) 
+        p.setOpen(isTouchDevice() ? true : setTimeout(() => p.setOpen(false), 3000))
+      }
     }
   })
 )(Cart)
+
+function isTouchDevice() {
+  var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ');
+  var mq = function(query) {
+    return window.matchMedia(query).matches;
+  }
+  if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
+    return true;
+  }
+  // include the 'heartz' as a way to have a non matching MQ to help terminate the join
+  // https://git.io/vznFH
+  var query = ['(', prefixes.join('touch-enabled),('), 'heartz', ')'].join('');
+  return mq(query);
+}

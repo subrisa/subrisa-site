@@ -49,8 +49,15 @@ const CustomHead = ({ title }) =>
         fill: inherit;
         cursor: pointer;
       }
-      a:visited, a:hover { color: inherit; }
-      a:focus, input:focus, textarea:focus { outline: none; }
+      a:visited, a:hover {
+        color: inherit;
+      }
+      a:focus,
+      input:focus,
+      textarea:focus,
+      button:focus {
+        outline: none;
+      }
       button {
         background: none;
         border: none;

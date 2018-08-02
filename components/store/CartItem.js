@@ -1,5 +1,6 @@
 import { compose, withHandlers } from 'recompose';
 import withCheckoutLineItemsRemove from './withCheckoutLineItemsRemove';
+import withCheckoutId from './withCheckoutId';
 
 const CartItem = ({item, handleRemoveClick}) => 
   <div className='root' onClick={handleRemoveClick}>
@@ -31,11 +32,12 @@ const CartItem = ({item, handleRemoveClick}) =>
 
 export default compose(
   withCheckoutLineItemsRemove,
+  withCheckoutId,
   withHandlers({
-    handleRemoveClick: ({item, checkoutLineItemsRemove}) => async e => {
+    handleRemoveClick: ({item, checkoutId, checkoutLineItemsRemove}) => async e => {
       const mutationResult = await checkoutLineItemsRemove({
         variables: {
-          checkoutId: localStorage.getItem('checkoutId'), 
+          checkoutId: checkoutId, 
           lineItemIds:  [
             item.node.id
           ] 
