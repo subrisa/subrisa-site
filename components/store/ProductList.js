@@ -7,7 +7,7 @@ import ProductTeaser from './ProductTeaser';
 const ProductList = ({products, loading, handleAddToCartClick}) => 
   products ? 
     <div className='root'>
-      {products.map(product => <ProductTeaser {...product} />)}
+      {products.map(product => <ProductTeaser key={product.id} {...product} />)}
       <style jsx>{`
         @media only screen and (min-width: 600px) {
           .root {

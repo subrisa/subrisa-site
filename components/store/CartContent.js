@@ -1,4 +1,4 @@
-import { compose, withHandlers } from 'recompose';
+import { compose, withHandlers, lifecycle } from 'recompose';
 import withCheckout from './withCheckout';
 import withCheckoutCreate from './withCheckoutCreate';
 import CartItem from './CartItem';
@@ -24,6 +24,10 @@ const CartContent = ({checkoutId, checkout, handleSubmitClick, checkoutLineItems
         </div>
         <form>
           <button type="button" onClick={handleSubmitClick}>Continuar</button>
+          {JSON.stringify('completedAt:'+checkout.completedAt)}<br />
+          {JSON.stringify('ready:'+checkout.ready)}<br />
+          {JSON.stringify('paymentDue:'+checkout.paymentDue)}<br />
+          {JSON.stringify('order:'+checkout.order)}<br />
         </form>
       </>
     }

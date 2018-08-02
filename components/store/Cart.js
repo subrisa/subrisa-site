@@ -1,15 +1,18 @@
-import { compose, lifecycle, withState } from 'recompose';
-import withCheckoutCreate from './withCheckoutCreate';
-import CartContent from './CartContent';
-import { CartIcon } from '../base/Icons';
-import WidthLimiter from '../struct/WidthLimiter';
+import { compose, lifecycle, branch } from 'recompose'
+import withCheckoutCreate from './withCheckoutCreate'
+import { setCheckoutId } from '/store'
+import CartContent from './CartContent'
+import { CartIcon } from '../base/Icons'
+import WidthLimiter from '../struct/WidthLimiter'
+import withCheckoutId from './withCheckoutId'
+import withCheckout from './withCheckout'
 
-const Cart = ({ checkoutId }) => 
+const Cart = ({ checkoutId, persistLoaded, checkout }) => 
   <div className='cart'>
     <WidthLimiter>
       <div className='head'>
         <h3>Hola, Visitante</h3>
-        <h3><span><CartIcon /></span>CARRO</h3>
+        <h3>{checkout && checkout.lineItems.edges.length}<span><CartIcon /></span>CARRO</h3>
       </div>
     </WidthLimiter>
     <div className='animation-wrapper'>
@@ -17,7 +20,7 @@ const Cart = ({ checkoutId }) =>
         <div className='content'>
           <div />
           <div>
-            {checkoutId && <CartContent checkoutId={checkoutId}/>}
+            {checkoutId && persistLoaded && <CartContent checkoutId={checkoutId}/>}
           </div>
         </div>
       </WidthLimiter>
@@ -69,23 +72,27 @@ const Cart = ({ checkoutId }) =>
   </div>
 
 export default compose(
-  withState('checkoutId', 'setCheckoutId', false),
   withCheckoutCreate,
+  withCheckoutId,
+  branch( // only wrap with withCheckout if checkoutId is available
+    props => !!props.checkoutId,
+    withCheckout
+  ),
   lifecycle({
-    async componentDidMount() {
-      const localStorageCheckoutId = localStorage.getItem('checkoutId')
-      if (localStorageCheckoutId) return this.props.setCheckoutId(localStorageCheckoutId)
-      const mutationResponse = await this.props.checkoutCreate({
-        variables: { 
-          input: {
-            allowPartialAddresses: true,
-            shippingAddress: {city: 'Santiago', province: 'RM', country: 'Chile'}
+    async componentDidUpdate() {
+      const p = this.props
+      if ((!p.checkoutId && p.persistLoaded) || (p.checkout.completedAt)) {
+        const mutationResponse = await this.props.checkoutCreate({
+          variables: { 
+            input: {
+              allowPartialAddresses: true,
+              shippingAddress: {city: 'Santiago', province: 'RM', country: 'Chile'}
+            }
           }
-        }
-      })
-      this.props.setCheckoutId(mutationResponse.data.checkoutCreate.checkout.id)
-      localStorage.setItem('checkoutId', mutationResponse.data.checkoutCreate.checkout.id)
-      console.log('Created checkout', mutationResponse.data.checkoutCreate.checkout.id)
+        })
+        const checkoutId = mutationResponse.data.checkoutCreate.checkout.id
+        this.props.dispatch(setCheckoutId(checkoutId))
+      }
     }
   })
 )(Cart)

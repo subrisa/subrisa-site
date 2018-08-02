@@ -5,7 +5,7 @@ Also pass down `dispatch` method used to *set* checkout ID
 import { connect } from 'react-redux';
 
 const withCheckoutId = connect(
-  (state) => ({ checkoutId: state.checkoutId }),
+  ({ checkoutId, persistLoaded }) => ({ checkoutId, persistLoaded }),
 )
 
 export default withCheckoutId

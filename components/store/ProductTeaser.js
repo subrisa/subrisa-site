@@ -2,6 +2,7 @@ import { compose, withHandlers } from 'recompose';
 import withCheckoutLineItemsAdd from './withCheckoutLineItemsAdd'
 import { CartIcon } from '../base/Icons';
 import { Link } from '/routes'
+import withCheckoutId from './withCheckoutId';
 
 const ProductList = ({title, price, images, handle, handleAddToCartClick, ...product}) => 
   <div className='root'> 
@@ -99,11 +100,12 @@ const ProductList = ({title, price, images, handle, handleAddToCartClick, ...pro
 
 export default compose(
   withCheckoutLineItemsAdd,
+  withCheckoutId,
   withHandlers({
-    handleAddToCartClick: ({ checkoutLineItemsAdd, ...product }) => async e => {
+    handleAddToCartClick: ({ checkoutLineItemsAdd, checkoutId, ...product }) => async e => {
       const mutationResult = await checkoutLineItemsAdd({
         variables: {
-          checkoutId: localStorage.getItem('checkoutId'), 
+          checkoutId: checkoutId, 
           lineItems:  [
             {variantId: product.variants[0].node.id, quantity: 1 }
           ] 

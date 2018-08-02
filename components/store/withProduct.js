@@ -60,7 +60,7 @@ export default graphql(product, {
   options(props) {
     return {
       variables: {
-        handle: props.url.query.slug
+        handle: props.url && props.url.query.slug
       }
     }
   },

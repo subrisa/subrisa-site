@@ -15,7 +15,7 @@ const StoreProduct = ({product}) =>
     <Head />
     <Masthead showSmall />
     <Main>
-      <br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br />
       <WidthLimiter>
         <ProductDetail {...product} />
       </WidthLimiter>
