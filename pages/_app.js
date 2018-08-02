@@ -1,8 +1,9 @@
 
 import App, {Container} from 'next/app'
-import withRedux from "next-redux-wrapper";
+import withRedux from "next-redux-wrapper"
+import AgeVerification from "/components/home/AgeVerification"
 import { Provider } from 'react-redux'
-import { makeStore } from '../store'
+import { makeStore } from '/store'
 
 class MyApp extends App {
   render () {
@@ -10,7 +11,9 @@ class MyApp extends App {
     return (
       <Container>
         <Provider store={store}>
-          <Component {...pageProps} />
+          <AgeVerification>
+            <Component {...pageProps} />
+          </AgeVerification>
         </Provider>
       </Container>
     )

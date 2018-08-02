@@ -16,16 +16,14 @@ import { getProducts, getHome } from 'lib/backend'
 const IndexPage = ({ content }) =>
   <Body>
     <Head />
-    <AgeVerification>
-      <Masthead />
-      <Main>
-        <About {...content} />
-        <Products products={content.products} />
-        <Contact {...content} />
-      </Main>
-      <Footer />
-      <MessengerChat />
-    </AgeVerification>
+    <Masthead />
+    <Main>
+      <About {...content} />
+      <Products products={content.products} />
+      <Contact {...content} />
+    </Main>
+    <Footer />
+    <MessengerChat />
   </Body>
 
 IndexPage.getInitialProps = async ({ req }) => {
