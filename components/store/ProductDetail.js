@@ -11,7 +11,7 @@ const ProductDetail = ({title, images, descriptionHtml, handleAddToCartClick, va
         <h1>{title}</h1>
         <h2><Price value={variants && variants.edges[0].node.price} /></h2>
         <form>
-          <button type="button" onClick={handleAddToCartClick}>Anadir ao carro</button>
+          <button type="button" onClick={handleAddToCartClick}>＋ Anadir ao carro</button>
         </form>
         <div dangerouslySetInnerHTML={{__html: descriptionHtml}} />
       </div>

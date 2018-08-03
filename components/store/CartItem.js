@@ -6,7 +6,7 @@ import Price from './Price';
 const CartItem = ({item, handleRemoveClick}) => 
   <div className='root'>
     <div className='actions'>
-      <a onClick={handleRemoveClick}>X</a>
+      <a onClick={handleRemoveClick}>╳</a>
     </div>
     <div className='title'>
       <span className='qty'>{item.node.quantity}x</span>{item.node.title}
