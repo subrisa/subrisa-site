@@ -8,7 +8,7 @@ import Price from './Price';
 const CartContent = ({checkoutId, checkout, handleSubmitClick, checkoutLineItemsRemove}) =>
   <div>
     {checkout && checkout.lineItems.edges.length == 0 &&
-      <small>Su carrito esta vaziito</small>
+      <small>Tu cesta está vacía.</small>
     }
     {checkout && checkout.lineItems.edges.length > 0 &&
       <>
@@ -22,7 +22,6 @@ const CartContent = ({checkoutId, checkout, handleSubmitClick, checkoutLineItems
           )}
         </div>
         <div className='prices'>
-          <div><span>Entrega:</span><span>Por Pagar</span></div>
           <div><span>Total:</span><span><Price value={checkout.totalPrice} /></span></div>
           <small>IVA incluido</small>
         </div>
