@@ -4,6 +4,7 @@ import MainMenu from './MainMenu'
 import SocialMenu from './SocialMenu'
 import { handleAnchorClick } from '../../lib/animatedScroll'
 import { withState, withHandlers, lifecycle, compose } from 'recompose'
+import WidthLimiter from "./WidthLimiter";
 
 const enhance = compose(
   withState('scrollTop', 'setScrollTop', 0),
@@ -20,22 +21,22 @@ const enhance = compose(
   })
 )
 
-const Header = ({ scrollTop }) =>
-  <header className={scrollTop > 60 && 'small'}>
-    <div style={{position: 'relative'}}>
-      <a href='/#' onClick={handleAnchorClick}>
-        <div className='logoWrapper full'><Logo /></div>
-        <div className='logoWrapper icon'><LogoIcon /></div>
-      </a>
-    </div>
-    <div className='main menuWrapper'><MainMenu /></div>
-    <div className='menuWrapper'><SocialMenu /></div>
+const Header = ({ scrollTop, showSmall }) =>
+  <div className={`masthead ${(scrollTop > 60 || showSmall) && 'small'}`}>
+    <WidthLimiter>
+      <header>
+        <div style={{position: 'relative'}}>
+          <a href='/#' onClick={handleAnchorClick}>
+            <div className='logoWrapper full'><Logo /></div>
+            <div className='logoWrapper icon'><LogoIcon /></div>
+          </a>
+        </div>
+        <div className='main menuWrapper'><MainMenu /></div>
+        <div className='menuWrapper'><SocialMenu /></div>
+      </header>
+    </WidthLimiter>
     <style jsx>{`
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px;
+      .masthead {
         color: white;
         fill: white;
         position: fixed;
@@ -43,6 +44,11 @@ const Header = ({ scrollTop }) =>
         transition: .9s all;
         z-index: 5000;
         box-shadow: 0px 140px 140px -150px rgba(0,0,0,0.8) inset
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
       .logoWrapper {
         width: 91px;
@@ -58,26 +64,26 @@ const Header = ({ scrollTop }) =>
       header .menuWrapper {
         transition: 1s all .2s;
       }
-      header.small {
-        background: rgba(0, 0, 0, 0.8);
+      .masthead.small {
+        background: rgba(5, 9, 18, 0.8);
         transition: .9s background-color .2s;
-        padding: 10px 20px;
+        backdrop-filter: blur(5px);
       }
-      header.small .logoWrapper {
+      .masthead.small .logoWrapper {
         width: 39px;
         transition: .3s all;
       }
-      header.small .logoWrapper.icon {
+      .masthead.small .logoWrapper.icon {
         transform: rotateY(0deg);
       }
-      header.small .logoWrapper.full {
+      .masthead.small .logoWrapper.full {
         transform: rotateY(180deg);
       }
-      header.small .menuWrapper {
+      .masthead.small .menuWrapper {
         transition: .3s all;
       }
       @media screen and (max-width: 600px) {
-        header.small .main.menuWrapper {
+        .masthead.small .main.menuWrapper {
           margin-top: -120px;
           transform: translateX(20px);
           opacity: 0;
@@ -90,6 +96,6 @@ const Header = ({ scrollTop }) =>
         }
       }
     `}</style>
-  </header>
+  </div>
 
 export default enhance(Header)

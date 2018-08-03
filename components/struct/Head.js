@@ -7,7 +7,7 @@ const CustomHead = ({ title }) =>
   <div>
     <Head>
       <title>{'BRISA'}</title>
-      <link href="https://fonts.googleapis.com/css?family=Lato:300,400,500,600" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,900" rel="stylesheet" />
       <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://subrisa.com/static/favicons/apple-touch-icon-144x144.png" />
       <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://subrisa.com/static/favicons/apple-touch-icon-152x152.png" />
       <link rel="icon" type="image/png" href="https://subrisa.com/static/favicons/favicon-32x32.png" sizes="32x32" />
@@ -15,6 +15,7 @@ const CustomHead = ({ title }) =>
       <meta name="application-name" content="Brisa"/>
       <meta name="msapplication-TileColor" content="#FFFFFF" />
       <meta name="msapplication-TileImage" content="https://subrisa.com/static/favicons/mstile-144x144.png" />   
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable='no' />
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116955640-1"></script>
       <script dangerouslySetInnerHTML={{__html: `
         window.dataLayer = window.dataLayer || [];
@@ -29,6 +30,10 @@ const CustomHead = ({ title }) =>
         margin: 0;
         font-family: 'Lato', sans-serif;
         overflow-x: hidden;
+        font-size: 12pt;
+        color: #131516;
+        fill: #131516;
+        line-height: 1.333;
       }
       img {
         max-width: 100%;
@@ -44,18 +49,31 @@ const CustomHead = ({ title }) =>
         fill: inherit;
         cursor: pointer;
       }
-      a:visited { color: inherit; }
-      a:focus, input:focus, textarea:focus { outline: none; }
+      a:visited, a:hover {
+        color: inherit;
+      }
+      a:focus,
+      input:focus,
+      textarea:focus,
+      button:focus {
+        outline: none;
+      }
       button {
         background: none;
         border: none;
         font-size: inherit;
+        transition: .7s filter, .3s opacity, .1s background-color;
+      }
+      button:active {
+        //filter blur(5px);
+        opacity: 0.7;
+        transition: .1s filter, .1s opacity;
       }
       form input,
       form button,
       form textarea {
-        font-size: 20px;
         box-sizing: border-box;
+        font-size: inherit;
         border: 0;
         border-radius: 16px;
         font-weight: 300;
@@ -66,15 +84,16 @@ const CustomHead = ({ title }) =>
       }
       form .error,
       form .error::placeholder {
-        color: red
+        color: red;
       }
       form button {
         color: white;
         padding: 6px 12px;
-        background: #85ABA9;
+        background-color: #7FB8B5;
+        background-image: radial-gradient(at top left,#7FB8B5,#A291BA);
         font-weight: 300;
         text-transform: uppercase;
-        margin-top: 1em;
+        margin-top: .5rem;
       }
       form button:disabled {
         opacity: 0.7;

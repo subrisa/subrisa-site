@@ -1,11 +1,13 @@
 import React from 'react'
 import { handleAnchorClick } from 'lib/animatedScroll'
+import { Link } from '/routes'
 
 const MainMenu = () =>
   <nav>
-    <a href='/#about' onClick={ handleAnchorClick }>Nosotros</a>
-    <a href='/#products' onClick={ handleAnchorClick }>Productos</a>
-    <a href='/#contact' onClick={ handleAnchorClick }>Contacto</a>
+    <Link route='/#about' ><a onClick={ handleAnchorClick }>Nosotros</a></Link>
+    <Link route='/#products'><a onClick={ handleAnchorClick }>Productos</a></Link>
+    <Link route='/tienda'><a>Tienda</a></Link>
+    <Link route='/#contact'><a onClick={ handleAnchorClick }>Contacto</a></Link>
     <style jsx>{`
       nav {
         text-transform: uppercase;

@@ -2,11 +2,12 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const next = require('next')
 const mailgun = require('mailgun-js')({apiKey: process.env.MG_KEY, domain: 'mg.subrisa.com'})
+const routes = require('./routes')
 
 const port = parseInt(process.env.PORT, 10) || 3000
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
-const handle = app.getRequestHandler()
+const handler = routes.getRequestHandler(app)
 
 function redirectToNaked(req, res, next) {
   if (req.hostname === 'www.subrisa.com') {
@@ -16,15 +17,14 @@ function redirectToNaked(req, res, next) {
 }
 
 
-app.prepare()
-  .then(() => {
-    const server = express()
+app.prepare().then(() => {
+  const server = express()
 
-    server.use(redirectToNaked)
+  server.use(redirectToNaked)
 
-    server.post('/signup/:email', (req, res) => {
-      res.send('success')
-    });
+  server.post('/signup/:email', (req, res) => {
+    res.send('success')
+  });
 
   server.post('/contact/form', bodyParser.json({type: '*/*'}), (req, res) => {
       const data = {
@@ -39,9 +39,7 @@ app.prepare()
       });
     })
 
-    server.get('*', (req, res) => {
-      return handle(req, res)
-    })
+    server.use(handler)
 
     server.listen(port, (err) => {
       if (err) throw err
