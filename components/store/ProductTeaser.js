@@ -26,8 +26,8 @@ const ProductList = ({title, price, images, handle, handleAddToCartClick, checko
       }
       .image {
         position: relative;
-        padding-bottom: 90%;
-        width: 90%;
+        padding-bottom: 80%;
+        width: 100%;
         margin: 0 auto;
       }
       .image img {
