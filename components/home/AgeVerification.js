@@ -92,7 +92,7 @@ export default compose(
   lifecycle({
     componentDidMount() {
       const { setLoading } = this.props
-      setTimeout(()=>setLoading(false), 2000)
+      setTimeout(()=>setLoading(false), 200)
     }
   })
 )(AgeVerification)

@@ -10,8 +10,9 @@ import withProduct from '/components/store/withProduct'
 import WidthLimiter from '../components/struct/WidthLimiter';
 import ProductDetail from '../components/store/ProductDetail';
 import { colors } from '/lib/style'
+import { Link } from '/routes'
 
-const StoreProduct = ({product}) =>
+const StoreProduct = ({product, loading}) =>
   <Body>
     <Head />
     <Masthead showSmall />
@@ -20,7 +21,7 @@ const StoreProduct = ({product}) =>
       <WidthLimiter>
         <br /><br />
         <div className='breadcrumb'>
-          <a>Inicio</a> / <a>Tienda</a> / <span>Producto</span>
+          <Link route='/'><a>Inicio</a></Link> / <Link route='/tienda'><a>Tienda</a></Link> / <span>Producto</span>
           <style jsx>{`
             .breadcrumb {
               font-weight: 300;
@@ -34,7 +35,10 @@ const StoreProduct = ({product}) =>
             }
           `}</style>
         </div>
-        <ProductDetail {...product} />
+        { loading ?
+          <span>cargando</span> :
+          <ProductDetail {...product} />
+        }
       </WidthLimiter>
     </Main>
     <Footer />

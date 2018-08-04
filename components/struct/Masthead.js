@@ -5,6 +5,7 @@ import SocialMenu from './SocialMenu'
 import { handleAnchorClick } from '../../lib/animatedScroll'
 import { withState, withHandlers, lifecycle, compose } from 'recompose'
 import WidthLimiter from "./WidthLimiter";
+import { Link } from '/routes'
 
 const enhance = compose(
   withState('scrollTop', 'setScrollTop', 0),
@@ -26,10 +27,10 @@ const Header = ({ scrollTop, showSmall }) =>
     <WidthLimiter>
       <header>
         <div style={{position: 'relative'}}>
-          <a href='/#' onClick={handleAnchorClick}>
+          <Link route='/'><a onClick={handleAnchorClick}>
             <div className='logoWrapper full'><Logo /></div>
             <div className='logoWrapper icon'><LogoIcon /></div>
-          </a>
+          </a></Link>
         </div>
         <div className='main menuWrapper'><MainMenu /></div>
         <div className='menuWrapper'><SocialMenu /></div>
