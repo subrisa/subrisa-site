@@ -9,18 +9,33 @@ import Cart from 'components/store/Cart'
 import withProduct from '/components/store/withProduct'
 import WidthLimiter from '../components/struct/WidthLimiter';
 import ProductDetail from '../components/store/ProductDetail';
+import { colors } from '/lib/style'
 
-const StoreProduct = ({product, query}) =>
+const StoreProduct = ({product}) =>
   <Body>
     <Head />
     <Masthead showSmall />
     <Main>
-      <br /><br /><br /><br /><br /><br />
+      <Cart />
       <WidthLimiter>
-        {JSON.stringify(query)}
+        <br /><br />
+        <div className='breadcrumb'>
+          <a>Inicio</a> / <a>Tienda</a> / <span>Producto</span>
+          <style jsx>{`
+            .breadcrumb {
+              font-weight: 300;
+              color: ${colors.abbey};
+              font-size: 0.75rem;
+              height: 41px;
+              line-height: 41px;
+            }
+            span {
+              color: ${colors.ashes}
+            }
+          `}</style>
+        </div>
         <ProductDetail {...product} />
       </WidthLimiter>
-      <Cart />
     </Main>
     <Footer />
   </Body>

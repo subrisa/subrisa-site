@@ -15,7 +15,7 @@ const CartItem = ({item, handleRemoveClick}) =>
     <style jsx>{`
       .root {
         font-size: 0.75rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.333em;
         display: flex;
         align-items: center;
       }

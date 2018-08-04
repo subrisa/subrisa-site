@@ -7,27 +7,32 @@ import WidthLimiter from '../struct/WidthLimiter'
 import withCheckoutId from './withCheckoutId'
 import withCheckout from './withCheckout'
 
-const Cart = ({ checkoutId, persistLoaded, checkout, isOpen, setOpen }) => 
-  <div className={`cart ${isOpen && 'open'}`}>
-    <WidthLimiter>
-      <div className='head' onClick={e => isTouchDevice() && setOpen(!isOpen)}>
-        <h3>Hola, Visitante</h3>
-        <h3>
-          {checkout && checkout.lineItems.edges.length}<span><CartIcon /></span>
-        </h3>
-      </div>
-    </WidthLimiter>
-    <div className='animation-wrapper'>
+const Cart = ({ checkoutId, persistLoaded, checkout, isOpen, setOpen }) =>
+  <div className='cart-spacer'>
+    <div className={`cart ${isOpen && 'open'}`}>
       <WidthLimiter>
-        <div className='content'>
-          <div />
-          <div>
-            {checkoutId && persistLoaded && <CartContent checkoutId={checkoutId}/>}
-          </div>
+        <div className='head' onClick={e => isTouchDevice() && setOpen(!isOpen)}>
+          <h3>Hola, Visitante</h3>
+          <h3>
+            {checkout && checkout.lineItems.edges.length}<span><CartIcon /></span>
+          </h3>
         </div>
       </WidthLimiter>
+      <div className='animation-wrapper'>
+        <WidthLimiter>
+          <div className='content'>
+            <div />
+            <div>
+              {checkoutId && persistLoaded && <CartContent checkoutId={checkoutId}/>}
+            </div>
+          </div>
+        </WidthLimiter>
+      </div>
     </div>
     <style jsx>{`
+      .cart-spacer {
+        height: 41px;
+      }
       .cart {
         position: fixed;
         top: 55px; left: 0; right: 0;
@@ -86,7 +91,6 @@ const Cart = ({ checkoutId, persistLoaded, checkout, isOpen, setOpen }) =>
         margin: 0 0.15em;
         transform: translateY(2px)
       }
-
     `}</style>
   </div>
 

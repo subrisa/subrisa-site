@@ -1,13 +1,15 @@
 import React from 'react'
-import { withState, compose, lifecycle } from 'recompose'
+import { withState, compose, lifecycle, withHandlers } from 'recompose'
 import { LogoIconSpinning } from '../base/Icons'
+import withAgeVerified from './withAgeVerified';
+import { verifyAge } from '/store';
 
-const AgeVerification = ({children, locked, setLocked, loading}) =>
+const AgeVerification = ({children, handleConfirmationClick, loading, ageVerified}) =>
   <div>
-    {locked && loading && <div className='spinner'>
+    {!ageVerified && loading && <div className='spinner'>
       <LogoIconSpinning />
     </div>}
-    <div className={`root ${locked && 'locked'} ${loading && 'loading'}`}>
+    <div className={`root ${!ageVerified && 'locked'} ${loading && 'loading'}`}>
       <div id='ageVerification'>
         {children}
       </div>
@@ -15,7 +17,7 @@ const AgeVerification = ({children, locked, setLocked, loading}) =>
         <div>
           <span>Es mayor de 18 años?</span>
           <div>
-            <button onClick={()=>setLocked(!locked)}>Si</button>
+            <button onClick={handleConfirmationClick}>Si</button>
             <button onClick={()=>window.location.href = 'https://www.fantasilandia.cl'}>No</button>
           </div>
         </div>
@@ -82,8 +84,11 @@ const AgeVerification = ({children, locked, setLocked, loading}) =>
   </div>
 
 export default compose(
-  withState('locked', 'setLocked', true),
   withState('loading', 'setLoading', true),
+  withAgeVerified,
+  withHandlers({
+    handleConfirmationClick: ({dispatch}) => e => dispatch(verifyAge())
+  }),
   lifecycle({
     componentDidMount() {
       const { setLoading } = this.props

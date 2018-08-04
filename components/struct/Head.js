@@ -2,6 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import Router from 'next/router'
 import NProgress from 'nprogress'
+import { colors } from '../../lib/style';
 
 const CustomHead = ({ title }) =>
   <div>
@@ -31,9 +32,9 @@ const CustomHead = ({ title }) =>
         font-family: 'Lato', sans-serif;
         overflow-x: hidden;
         font-size: 12pt;
-        color: #131516;
-        fill: #131516;
-        line-height: 1.333;
+        color: ${colors.outterspace};
+        fill: ${colors.outterspace};
+        line-height: 1.5;
       }
       img {
         max-width: 100%;
@@ -94,10 +95,19 @@ const CustomHead = ({ title }) =>
         font-weight: 300;
         text-transform: uppercase;
         margin-top: .5rem;
+        animation: GradientFlow 8s linear infinite;
+        background-size: 150% 150%;
       }
       form button:disabled {
         opacity: 0.7;
         pointer-events: none;
+      }
+      @keyframes GradientFlow { 
+        0%{background-position:0% 0%}
+        25%{background-position:25% 100%}
+        50%{background-position:100% 100%}
+        75%{background-position:50% 50%}
+        100%{background-position:0% 0%}
       }
     `}</style>
   </div>

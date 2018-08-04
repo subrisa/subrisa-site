@@ -50,7 +50,7 @@ const ProductList = ({title, price, images, handle, handleAddToCartClick, checko
       .root > button {
         position: absolute;
         right: 7px;
-        bottom: -3px;
+        bottom: 0px;
         margin-top: 100%;
         background: ;
         padding: 0.2em 0.3em;
