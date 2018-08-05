@@ -4,7 +4,7 @@ import { CartIcon } from '../base/Icons';
 import { Link } from '/routes'
 import withCheckoutId from './withCheckoutId';
 import Price from './Price'
-const ProductList = ({title, price, images, handle, handleAddToCartClick, checkoutId}) => 
+const ProductList = ({title, price, images, handle, handleAddToCartClick}) => 
   <div className='root'> 
     <div className='image'>
       <Link route={`/tienda/producto/${handle}`}><a>
@@ -17,9 +17,9 @@ const ProductList = ({title, price, images, handle, handleAddToCartClick, checko
       </a></Link>
       <div className='price'><Price value={price} /></div>
     </div>
-    {checkoutId && <button type='button' onClick={handleAddToCartClick}>
+    <button type='button' onClick={handleAddToCartClick}>
       <span>+</span><span><CartIcon /></span>
-    </button>}
+    </button>
     <style jsx>{`
       .root {
         position: relative;
@@ -117,7 +117,6 @@ export default compose(
           ] 
         }
       })
-      console.log(mutationResult)
     }
   })
 )(ProductList)

@@ -26,8 +26,13 @@ const About = ({cover, title, subtitle}) =>
         max-width: 600px;
         text-align: center;
         margin-left: auto; margin-right: auto;
-        font-size: 1.333em;
+        font-size: 1rem;
         font-weight: 300;
+      }
+      @media only screen and (min-width: 600px) {
+        p {
+          font-size: 1.333rem
+        }
       }
     `}</style>
     <style jsx global>{`

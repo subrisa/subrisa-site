@@ -13,7 +13,9 @@ const ProductDetail = ({title, images, descriptionHtml, handleAddToCartClick, va
         <form>
           <button type="button" onClick={handleAddToCartClick}>＋ Añadir al carrito</button>
         </form>
-        <div dangerouslySetInnerHTML={{__html: descriptionHtml}} />
+        <div className="description">
+          <div dangerouslySetInnerHTML={{__html: descriptionHtml}} />
+        </div>
       </div>
     </div>
     <style jsx>{`
@@ -45,6 +47,9 @@ const ProductDetail = ({title, images, descriptionHtml, handleAddToCartClick, va
       }
       button {
         background-image: none;
+      }
+      .description {
+        margin-top: 1em;
       }
     `}</style>
   </div>

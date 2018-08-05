@@ -9,8 +9,7 @@ import Cart from 'components/store/Cart'
 import withProduct from '/components/store/withProduct'
 import WidthLimiter from '../components/struct/WidthLimiter';
 import ProductDetail from '../components/store/ProductDetail';
-import { colors } from '/lib/style'
-import { Link } from '/routes'
+import Breadcrumb from '/components/struct/Breadbrumb';
 
 const StoreProduct = ({product, loading}) =>
   <Body>
@@ -18,23 +17,9 @@ const StoreProduct = ({product, loading}) =>
     <Masthead showSmall />
     <Main>
       <Cart />
+      <br /><br />
+      <Breadcrumb />
       <WidthLimiter>
-        <br /><br />
-        <div className='breadcrumb'>
-          <Link route='/'><a>Inicio</a></Link> / <Link route='/tienda'><a>Tienda</a></Link> / <span>Producto</span>
-          <style jsx>{`
-            .breadcrumb {
-              font-weight: 300;
-              color: ${colors.abbey};
-              font-size: 0.75rem;
-              height: 41px;
-              line-height: 41px;
-            }
-            span {
-              color: ${colors.ashes}
-            }
-          `}</style>
-        </div>
         { loading ?
           <span>cargando</span> :
           <ProductDetail {...product} />

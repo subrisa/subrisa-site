@@ -7,8 +7,8 @@ const Title = ({ text, color }) =>
     <style jsx>{`
       .wrapper {
         text-transform: uppercase;
+        font-size: 1.75rem;
         text-align: center;
-        font-size: 2.333rem;
         position: relative;
         display: block;
         font-weight: 300;
@@ -22,6 +22,11 @@ const Title = ({ text, color }) =>
         top: 1.6em;
         left: calc(50% - 30px);
         background: ${color};
+      }
+      @media only screen and (min-width: 600px) {
+        .wrapper {
+          font-size: 2.333rem;
+        }
       }
     `}</style>
   </span>

@@ -4,7 +4,7 @@ import withCheckoutId from './withCheckoutId';
 import Price from './Price';
 
 const CartItem = ({item, handleRemoveClick}) => 
-  <div className='root'>
+  <div className='cart-item'>
     <div className='actions'>
       <a onClick={handleRemoveClick}>╳</a>
     </div>
@@ -13,7 +13,7 @@ const CartItem = ({item, handleRemoveClick}) =>
     </div>
     <div><Price value={item.node.variant && item.node.variant.price*item.node.quantity} /></div>
     <style jsx>{`
-      .root {
+      .cart-item {
         font-size: 0.75rem;
         margin-bottom: 0.333em;
         display: flex;
@@ -62,7 +62,6 @@ export default compose(
           ] 
         }
       })
-      console.log(mutationResult)
     }
   })
 )(CartItem)

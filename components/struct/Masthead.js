@@ -71,7 +71,7 @@ const Header = ({ scrollTop, showSmall }) =>
         backdrop-filter: blur(5px);
       }
       .masthead.small .logoWrapper {
-        width: 39px;
+        width: 2.333rem;
         transition: .3s all;
       }
       .masthead.small .logoWrapper.icon {
@@ -93,7 +93,7 @@ const Header = ({ scrollTop, showSmall }) =>
       }
       @media screen and (min-width: 600px) {
         .logoWrapper {
-          width: 117px;
+          width: 6.333rem;
         }
       }
     `}</style>

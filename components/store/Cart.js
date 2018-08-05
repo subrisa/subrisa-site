@@ -40,6 +40,7 @@ const Cart = ({ checkoutId, persistLoaded, checkout, isOpen, setOpen }) =>
         backdrop-filter: blur(5px);
         min-height: 41px;
         overflow: hidden;
+        z-index: 1000;
       }
       .animation-wrapper {
         margin-top: -500px;
