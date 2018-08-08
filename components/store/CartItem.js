@@ -1,10 +1,10 @@
-import { compose, withHandlers } from 'recompose';
+import { compose, withHandlers, withState } from 'recompose';
 import withCheckoutLineItemsRemove from './withCheckoutLineItemsRemove';
 import withCheckoutId from './withCheckoutId';
 import Price from './Price';
 
-const CartItem = ({item, handleRemoveClick}) => 
-  <div className='cart-item'>
+const CartItem = ({item, handleRemoveClick, removed}) => 
+  <div className={`cart-item ${removed && 'removed'}`}>
     <div className='actions'>
       <a onClick={handleRemoveClick}>╳</a>
     </div>
@@ -18,6 +18,11 @@ const CartItem = ({item, handleRemoveClick}) =>
         margin-bottom: 0.333em;
         display: flex;
         align-items: center;
+      }
+      .cart-item.removed {
+        opacity: 0;
+        margin-top: -2em;
+        transition: .5s all
       }
       .actions a {
         background: #a2a7b2;
@@ -50,10 +55,17 @@ const CartItem = ({item, handleRemoveClick}) =>
   </div>
 
 export default compose(
+  withState('removed', 'setRemoved', false),
   withCheckoutLineItemsRemove,
   withCheckoutId,
   withHandlers({
-    handleRemoveClick: ({item, checkoutId, checkoutLineItemsRemove}) => async e => {
+    handleRemoveClick: ({
+      item,
+      checkoutId,
+      checkoutLineItemsRemove,
+      setRemoved
+    }) => async e => {
+      setRemoved(true)
       const mutationResult = await checkoutLineItemsRemove({
         variables: {
           checkoutId: checkoutId, 

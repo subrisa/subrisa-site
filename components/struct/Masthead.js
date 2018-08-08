@@ -27,7 +27,7 @@ const Header = ({ scrollTop, showSmall }) =>
     <WidthLimiter>
       <header>
         <div style={{position: 'relative'}}>
-          <Link route='/'><a onClick={handleAnchorClick}>
+          <Link route='/#'><a onClick={handleAnchorClick}>
             <div className='logoWrapper full'><Logo /></div>
             <div className='logoWrapper icon'><LogoIcon /></div>
           </a></Link>

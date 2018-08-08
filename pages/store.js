@@ -8,13 +8,16 @@ import MessengerChat from 'components/home/MessengerChat'
 import Title from 'components/base/Title'
 import ProductList from 'components/store/ProductList';
 import Cart from 'components/store/Cart'
-import Sidebar from '../components/struct/Sidebar';
 import WidthLimiter from '../components/struct/WidthLimiter';
 import Breadbrumb from '../components/struct/Breadbrumb';
 
 const Store = (props) =>
   <Body>
-    <Head />
+    <Head>
+      <title>BRISA Tienda Online</title>
+      <meta name="title" content="BRISA Tienda Online" />
+      <meta name="description" content="Papelillos Brisa enviados directamente a su casa. Compra Online Fácil y Segura, pague con su tarjeta, en Servipag o con Bitcoin!" />
+    </Head>
     <Masthead showSmall />
     <Main>
       <Cart />

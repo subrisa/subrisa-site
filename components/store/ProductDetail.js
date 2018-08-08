@@ -1,9 +1,16 @@
-import { compose, withHandlers } from 'recompose';
+import { compose, withHandlers, withState } from 'recompose';
 import withCheckoutLineItemsAdd from './withCheckoutLineItemsAdd'
 import withCheckoutId from './withCheckoutId';
 import Price from './Price';
 
-const ProductDetail = ({title, images, descriptionHtml, handleAddToCartClick, variants, ...product}) => 
+const ProductDetail = ({
+  title,
+  images,
+  descriptionHtml,
+  handleAddToCartClick,
+  variants,
+  isLoading
+}) => 
   <div className='product-detail'>
     <div className='content'>
       <div className='image'><img src={images && images.edges[0].node.src} /></div>
@@ -11,7 +18,9 @@ const ProductDetail = ({title, images, descriptionHtml, handleAddToCartClick, va
         <h1>{title}</h1>
         <h2><Price value={variants && variants.edges[0].node.price} /></h2>
         <form>
-          <button type="button" onClick={handleAddToCartClick}>＋ Añadir al carrito</button>
+          <button type="button" onClick={handleAddToCartClick} disabled={isLoading}>
+            {!isLoading ? '＋ Añadir al carrito' : 'Cargando..' }
+          </button>
         </form>
         <div className="description">
           <div dangerouslySetInnerHTML={{__html: descriptionHtml}} />
@@ -55,10 +64,17 @@ const ProductDetail = ({title, images, descriptionHtml, handleAddToCartClick, va
   </div>
 
 export default compose(
+  withState('isLoading', 'setLoading', false),
   withCheckoutLineItemsAdd,
   withCheckoutId,
   withHandlers({
-    handleAddToCartClick: ({ checkoutLineItemsAdd, checkoutId, ...product }) => async e => {
+    handleAddToCartClick: ({
+      checkoutLineItemsAdd,
+      checkoutId,
+      setLoading,
+      ...product
+    }) => async e => {
+      setLoading(true)
       const mutationResult = await checkoutLineItemsAdd({
         variables: {
           checkoutId: checkoutId, 
@@ -67,7 +83,7 @@ export default compose(
           ] 
         }
       })
-      console.log(mutationResult)
+      setLoading(false)
     }
   })
 )(ProductDetail)

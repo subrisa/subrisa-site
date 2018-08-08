@@ -2,11 +2,10 @@ import React from 'react'
 import Head from 'next/head'
 import Router from 'next/router'
 import NProgress from 'nprogress'
-import { colors } from '../../lib/style';
+import { colors } from '/lib/style';
 
-const CustomHead = ({ title }) =>
+const CustomHead = ({ children }) =>
   <Head>
-    <title>{'BRISA'}</title>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,900" rel="stylesheet" />
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://subrisa.com/static/favicons/apple-touch-icon-144x144.png" />
     <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://subrisa.com/static/favicons/apple-touch-icon-152x152.png" />
@@ -16,6 +15,7 @@ const CustomHead = ({ title }) =>
     <meta name="msapplication-TileColor" content="#FFFFFF" />
     <meta name="msapplication-TileImage" content="https://subrisa.com/static/favicons/mstile-144x144.png" />   
     <meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable='no' />
+    {children}
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116955640-1"></script>
     <script dangerouslySetInnerHTML={{__html: `
       window.dataLayer = window.dataLayer || [];
@@ -64,7 +64,6 @@ const CustomHead = ({ title }) =>
         transition: .7s filter, .3s opacity, .1s background-color;
       }
       button:active {
-        //filter blur(5px);
         opacity: 0.7;
         transition: .1s filter, .1s opacity;
       }
@@ -73,6 +72,7 @@ const CustomHead = ({ title }) =>
       form textarea {
         box-sizing: border-box;
         font-size: inherit;
+        line-height: inherit;
         border: 0;
         border-radius: 16px;
         font-weight: 300;

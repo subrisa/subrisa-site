@@ -5,17 +5,19 @@ import Head from 'components/struct/Head'
 import Masthead from 'components/struct/Masthead'
 import Main from 'components/struct/Main'
 import Footer from 'components/struct/Footer'
-import AgeVerification from 'components/home/AgeVerification'
 import About from 'components/home/About'
 import Products from 'components/home/Products'
-import News from 'components/home/News'
 import Contact from 'components/home/Contact'
 import MessengerChat from 'components/home/MessengerChat'
 import { getProducts, getHome } from 'lib/backend'
 
 const IndexPage = ({ content }) =>
   <Body>
-    <Head />
+    <Head>
+      <title>BRISA</title>
+      <meta name="title" content="BRISA" />
+      <meta name="description" content="Papelillos de alta calidad 420% Chileno. Para, Desconéctate y Disfruta su Brisa." />
+    </Head>
     <Masthead />
     <Main>
       <About {...content} />
