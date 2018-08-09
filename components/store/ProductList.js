@@ -26,7 +26,7 @@ const ProductList = ({products, loading, handleAddToCartClick}) =>
         }
       `}</style>
     </div> :
-    <div>Cargando...</div>
+    <div style={{paddingTop: 200, paddingBottom: 200, textAlign: 'center'}}>Cargando...</div>
 
 export default compose(
   withProductList,

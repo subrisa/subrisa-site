@@ -18,7 +18,6 @@ const StoreProduct = ({product, loading}) =>
       <meta name="title" content={`BRISA Tienda Online - ${product.title}`} />
       <meta name="description" content="Papelillos Brisa enviados directamente a su casa. Compra Online Fácil y Segura, pague con su tarjeta, en Servipag o con Bitcoin!" />
     </Head>
-    <Masthead showSmall />
     <Main>
       <Cart />
       <br /><br />
@@ -30,7 +29,6 @@ const StoreProduct = ({product, loading}) =>
         }
       </WidthLimiter>
     </Main>
-    <Footer />
   </Body>
 
 export default withData(withRouter(withProduct(StoreProduct)))

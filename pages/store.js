@@ -3,8 +3,6 @@ import Body from 'components/struct/Body'
 import Head from 'components/struct/Head'
 import Masthead from 'components/struct/Masthead'
 import Main from 'components/struct/Main'
-import Footer from 'components/struct/Footer'
-import MessengerChat from 'components/home/MessengerChat'
 import Title from 'components/base/Title'
 import ProductList from 'components/store/ProductList';
 import Cart from 'components/store/Cart'
@@ -18,7 +16,6 @@ const Store = (props) =>
       <meta name="title" content="BRISA Tienda Online" />
       <meta name="description" content="Papelillos Brisa enviados directamente a su casa. Compra Online Fácil y Segura, pague con su tarjeta, en Servipag o con Bitcoin!" />
     </Head>
-    <Masthead showSmall />
     <Main>
       <Cart />
       <br /><br />
@@ -27,7 +24,6 @@ const Store = (props) =>
         <ProductList />
       </WidthLimiter>
     </Main>
-    <Footer />
   </Body>
 
 export default withData(Store)
