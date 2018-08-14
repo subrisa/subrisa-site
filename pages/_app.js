@@ -1,6 +1,9 @@
 
 import App, {Container} from 'next/app'
+import Router from "next/router"
 import withRedux from "next-redux-wrapper"
+import withGA from "next-ga"
+import { compose } from 'recompose'
 import { Provider } from 'react-redux'
 import { makeStore } from '/store'
 
@@ -27,4 +30,7 @@ class MyApp extends App {
   }
 }
 
-export default withRedux(makeStore)(MyApp)
+export default compose(
+  withRedux(makeStore),
+  withGA("UA-116955640-1", Router)
+)(MyApp)

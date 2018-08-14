@@ -16,14 +16,6 @@ const CustomHead = ({ children }) =>
     <meta name="msapplication-TileImage" content="https://subrisa.com/static/favicons/mstile-144x144.png" />   
     <meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable='no' />
     {children}
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116955640-1"></script>
-    <script dangerouslySetInnerHTML={{__html: `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-116955640-1');
-    `}} />
     <style jsx global>{`
       body {
         margin: 0;
