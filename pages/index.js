@@ -5,6 +5,7 @@ import Head from 'components/struct/Head'
 import Main from 'components/struct/Main'
 import About from 'components/home/About'
 import Products from 'components/home/Products'
+import Map from 'components/home/Map'
 import Contact from 'components/home/Contact'
 import { getHome } from 'lib/backend'
 
@@ -18,6 +19,7 @@ const IndexPage = ({ content }) =>
     <Main>
       <About {...content} />
       <Products products={content.products} />
+      <Map {...content} />
       <Contact {...content} />
     </Main>
   </Body>
