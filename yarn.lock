@@ -3927,9 +3927,10 @@ next-apollo@^2.0.0:
     react-dom "^16.0.0"
 
 next-ga@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/next-ga/-/next-ga-2.1.0.tgz#ecd4155137ea374bc45f836a0493270a27e539c6"
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/next-ga/-/next-ga-2.3.1.tgz#a3c26fad0aeb73e1db978c37f6eb93586a0836bd"
   dependencies:
+    debug "^3.1.0"
     react-ga "^2.5.3"
 
 next-redux-wrapper@^2.0.0:
