@@ -1,30 +1,62 @@
-import { compose, withProps } from "recompose"
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
-import { MarkerClusterer } from "react-google-maps/lib/components/addons/MarkerClusterer"
+import { compose, withProps, withState, withHandlers } from "recompose"
+import { RichText } from 'prismic-reactjs'
+import ResellersMap from "./ResellersMap";
 
-const Map = ({resellers}) =>
-  <div>
-    <GoogleMap
-      defaultZoom={6}
-      defaultCenter={{ lat: -31.7530566, lng: -70.6353693 }}
-    >
-      {resellers.map(({ id, data: { location } }) =>
-        <Marker
-          icon={{ url: "/static/marker.png", scaledSize: new google.maps.Size(32, 35) }}
-          position={{ lat: location.latitude, lng: location.longitude }}
-          size={1}
+const Map = ({resellers, selected, setSelected, onMarkerClick}) =>
+  <div className='map'>
+    {selected && 
+      <div className='mapInfo' onClick={e=> setSelected(false)}>
+        <MapInfo
+          reseller={resellers.find(e => e.id == selected)}
         />
-      )}
-    </GoogleMap>
+      </div>
+    }
+    <div>
+      <ResellersMap
+        resellers={resellers}
+        onMarkerClick={onMarkerClick}
+        selected={selected}
+      />
+    </div>
+    <style jsx>{`
+      .map {
+        position: relative
+      }
+      .mapInfo {
+        position: absolute;
+        top: 5px;
+        bottom: 5px;
+        left: 5px;
+        width: 200px;
+        z-index: 1;
+        background: rgba(255,255,255,0.9);
+        padding: 20px;
+        border-radius: 5px;
+      }
+    `}</style>
+  </div>
+
+const MapInfo = ({reseller: {data: {title, description}}}) =>
+  <div>
+    <h3>{title[0].text}</h3>
+    {RichText.render(description)}
+    <style jsx>{`
+      div {
+        font-weight: 300;
+      }
+      h3 {
+        margin-top: 0;
+        font-size: 22px;
+        font-weight: 300;
+      }
+    `}</style>
   </div>
 
 export default compose(
-  withProps({
-    googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyC46XBb1KWbPeXsGYzIbOiEc8gaGWCSWuk&v=3.exp",
-    loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: <div style={{ height: `400px` }} />,
-    mapElement: <div style={{ height: `100%` }} />,
-  }),
-  withScriptjs,
-  withGoogleMap
+  withState('selected', 'setSelected', false),
+  withHandlers({
+    onMarkerClick: ({setSelected}) => id => {
+      setSelected(id)
+    }
+  })
 )(Map)
