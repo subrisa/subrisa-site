@@ -1,15 +1,22 @@
 import { compose, withProps } from "recompose"
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
+import { MarkerClusterer } from "react-google-maps/lib/components/addons/MarkerClusterer"
 
 const Map = ({resellers}) =>
   <div>
     <GoogleMap
-      defaultZoom={4}
-      defaultCenter={{ lat: -35.1169026, lng: -71.0672386 }}
+      defaultZoom={6}
+      defaultCenter={{ lat: -31.7530566, lng: -70.6353693 }}
     >
-      {resellers.map(({ id, data: { location } }) =>
-        <Marker position={{ lat: location.latitude, lng: location.longitude }} />
-      )}
+      <MarkerClusterer
+        averageCenter
+        enableRetinaIcons
+        gridSize={60}
+      >
+        {resellers.map(({ id, data: { location } }) =>
+          <Marker position={{ lat: location.latitude, lng: location.longitude }} />
+        )}
+      </MarkerClusterer>
     </GoogleMap>
   </div>
 
