@@ -11,6 +11,7 @@ import AgeVerification from "/components/home/AgeVerification"
 import Masthead from '/components/struct/Masthead'
 import MessengerChat from '/components/home/MessengerChat'
 import Footer from  '/components/struct/Footer'
+import Head from '/components/struct/Head'
 
 class MyApp extends App {
   render () {
@@ -19,6 +20,7 @@ class MyApp extends App {
       <Container>
         <Provider store={store}>
           <AgeVerification>
+            <Head />
             <Masthead showSmall={router.pathname !== '/'} />
             <Component {...pageProps} />
             <Footer />
