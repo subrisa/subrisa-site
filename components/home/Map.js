@@ -8,15 +8,13 @@ const Map = ({resellers}) =>
       defaultZoom={6}
       defaultCenter={{ lat: -31.7530566, lng: -70.6353693 }}
     >
-      <MarkerClusterer
-        averageCenter
-        enableRetinaIcons
-        gridSize={60}
-      >
-        {resellers.map(({ id, data: { location } }) =>
-          <Marker position={{ lat: location.latitude, lng: location.longitude }} />
-        )}
-      </MarkerClusterer>
+      {resellers.map(({ id, data: { location } }) =>
+        <Marker
+          icon={{ url: "/static/marker.png", scaledSize: new google.maps.Size(32, 35) }}
+          position={{ lat: location.latitude, lng: location.longitude }}
+          size={1}
+        />
+      )}
     </GoogleMap>
   </div>
 
