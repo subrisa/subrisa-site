@@ -3,11 +3,12 @@ import Title from '../base/Title'
 import WidthLimiter from '../struct/WidthLimiter'
 import { RichText } from 'prismic-reactjs'
 import ContactForm from '../contact/ContactForm';
+import { colors } from '../../lib/style';
 
 const Contact = ({ contact_title, newsletter_text, contact_text  }) =>
   <WidthLimiter>
     <div className='root' id='contact'>
-      <h2><Title text={contact_title[0].text} color='#7FB8B5' /></h2>
+      <h2><Title text={contact_title[0].text} color={colors.brown} /></h2>
       <div>
         <h3>{contact_text && RichText.render(contact_text)}</h3>
         <ContactForm />

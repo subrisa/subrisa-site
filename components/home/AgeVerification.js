@@ -1,15 +1,11 @@
 import React from 'react'
-import { withState, compose, lifecycle, withHandlers } from 'recompose'
-import { LogoIconSpinning } from '../base/Icons'
+import { compose, withHandlers } from 'recompose'
 import withAgeVerified from './withAgeVerified';
 import { verifyAge } from '/store';
 
-const AgeVerification = ({children, handleConfirmationClick, loading, ageVerified}) =>
+const AgeVerification = ({children, handleConfirmationClick, ageVerified, persistLoaded}) =>
   <div>
-    {!ageVerified && loading && <div className='spinner'>
-      <LogoIconSpinning />
-    </div>}
-    <div className={`root ${!ageVerified && 'locked'} ${loading && 'loading'}`}>
+    <div className={`root ${!ageVerified && persistLoaded && 'locked'}`}>
       <div id='ageVerification'>
         {children}
       </div>
@@ -24,21 +20,6 @@ const AgeVerification = ({children, handleConfirmationClick, loading, ageVerifie
       </div>
     </div>
     <style jsx>{`
-      .root {
-        transition: .6s opacity;
-      }
-      .loading {
-        opacity: 0;
-      }
-      .spinner {
-        position: absolute;
-        top: 50%;
-        text-align: center;
-        left: 50%;
-        transform: translate3d(-50%, -50%, 0);
-        width: 96px;
-        height: 96px;
-      }
       #ageVerification {
         transition: .8s filter, .8s transform;
         backface-visibility: hidden;
@@ -84,15 +65,8 @@ const AgeVerification = ({children, handleConfirmationClick, loading, ageVerifie
   </div>
 
 export default compose(
-  withState('loading', 'setLoading', true),
   withAgeVerified,
   withHandlers({
     handleConfirmationClick: ({dispatch}) => e => dispatch(verifyAge())
-  }),
-  lifecycle({
-    componentDidMount() {
-      const { setLoading } = this.props
-      setTimeout(()=>setLoading(false), 200)
-    }
   })
 )(AgeVerification)

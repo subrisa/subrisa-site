@@ -1,17 +1,21 @@
 import { compose, withProps, withState, withHandlers } from "recompose"
 import { RichText } from 'prismic-reactjs'
 import ResellersMap from "./ResellersMap";
+import Title from "../base/Title";
+import { colors } from "../../lib/style";
 
 const Map = ({resellers, selected, setSelected, onMarkerClick}) =>
+
   <div className='map'>
-    {selected && 
-      <div className='mapInfo' onClick={e=> setSelected(false)}>
-        <MapInfo
-          reseller={resellers.find(e => e.id == selected)}
-        />
-      </div>
-    }
+    <h2><Title text='ENCUÉNTRANOS EN' color={colors.turquoise} /></h2>
     <div>
+      {selected && 
+        <div className='mapInfo' onClick={e=> setSelected(false)}>
+          <MapInfo
+            reseller={resellers.find(e => e.id == selected)}
+          />
+        </div>
+      }
       <ResellersMap
         resellers={resellers}
         onMarkerClick={onMarkerClick}
@@ -19,7 +23,7 @@ const Map = ({resellers, selected, setSelected, onMarkerClick}) =>
       />
     </div>
     <style jsx>{`
-      .map {
+      .map > div {
         position: relative
       }
       .mapInfo {

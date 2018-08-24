@@ -6,7 +6,7 @@ const MainMenu = () =>
   <nav>
     <Link route='/#about' ><a onClick={ handleAnchorClick }>Nosotros</a></Link>
     <Link route='/#products'><a onClick={ handleAnchorClick }>Productos</a></Link>
-    <Link route='/tienda'><a>Tienda</a></Link>
+    <Link route='/tienda'><a>Encuéntranos</a></Link>
     <Link route='/#contact'><a onClick={ handleAnchorClick }>Contacto</a></Link>
     <style jsx>{`
       nav {
