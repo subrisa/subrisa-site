@@ -26,7 +26,7 @@
     "graphql": "^0.13.2",
     "isomorphic-unfetch": "^2.0.0",
     "mailgun-js": "^0.20.0",
-    "next": "^6.1.0",
+    "next": "^11.1.0",
     "next-apollo": "^2.0.0",
     "next-ga": "^2.1.0",
     "next-redux-wrapper": "^2.0.0",
