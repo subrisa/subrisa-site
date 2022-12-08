@@ -21,7 +21,7 @@
     "await-to-js": "^2.0.1",
     "babel-plugin-module-resolver": "^3.1.1",
     "body-parser": "^1.18.3",
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "formik": "^1.0.1",
     "graphql": "^0.13.2",
     "isomorphic-unfetch": "^2.0.0",
